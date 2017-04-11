@@ -67,6 +67,10 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-webkit-overflow-scrolling: touch;
 }
+.jlogo{
+    width:70px;
+    margin-top:-25px
+}
 .col-md-4 {
 	padding-bottom: 30px;
 }
@@ -97,7 +101,7 @@ body {
   
 }
 .navbar-default {
-	background-color: #fff;
+    background-color: #fff;
 	padding: 12px 0;
 	box-shadow: 0 0 3px #ccc;
 	font-weight: 500;
@@ -181,7 +185,7 @@ blockquote {
 }
 blockquote cite {
 	position: absolute;
-	bottom: -25px;
+	bottom: -23px;
 	right: 0;
 	font-size: 12px;
 	font-style: italic;
@@ -242,7 +246,7 @@ a:before, a:after {
 }
 #headerwrap h1 {
 	color: #fff;
-	font-size: 50px;
+	font-size: 100px;
 	font-weight: 400;
 	text-align: center;
 	letter-spacing: 2px;
@@ -614,4 +618,7 @@ body .header {
 }
 .about_me img{
 	width:100px;
+}
+.mySkills{
+    height:300px;
 }

@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Portfolio | Jojo P. Linatoc</title>
-    <link rel="icon" type="image/png" href="images/j.png">
+    <link rel="icon" type="image/png" href="public/images/jlogo.png">
     <!-- Bootstrap core CSS -->
     <link href="public/assets/css/bootstrap.css" rel="stylesheet">
     <!--for tooltip-->
@@ -38,7 +38,7 @@
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-                <a class="navbar-brand" href="#home"> Jojo Linatoc</a> </div>
+                <a class="navbar-brand" href="#home"><img src="public/images/jlogo.png" class="jlogo"></a> </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#home" class="smoothScroll">Home</a></li>
@@ -57,8 +57,8 @@
 <!-- ==== HEADERWRAP ==== -->
 <div id="headerwrap" name="home">
     <header class="clearfix">
-        <h1>Web Development</h1>
-        <p>Web development refers to building, creating, and maintaining websites. <br>It includes aspects such as web design, web publishing, web programming, and database management.</p>
+        <h1 class="homeh1">Jojo Linatoc</h1>
+        <p class="homep">Front-end Web Developer</p>
         <a href="#portfolio" class="smoothScroll btn btn-lg">See my works</a> </header>
 </div>
 <!-- /headerwrap -->
@@ -76,18 +76,7 @@
                     <li>For me, the customer is always right.</li>
                     <li>Patient in testing programs.</li>
                     <li>Time is money, Money is time.</li>
-                    <li>My Background is in web development.</li>
-                    <li>I have excellent knowledge in HTML, CSS3 and intermediate in PHP, MySQL, Jquery, Javascript.</li>
-                </ul>
-                <h3 class="hideme">Software I am familiar to:</h3>
-                <ul>
-                    <li>Compass watch, Play Framework, Intellij IDEA, Source Tree</li>
-                    <li class="about_me">
-                        <img src="public/assets/img/compass.png">
-                        <img src="public/assets/img/play.png">
-                        <img src="public/assets/img/ij.png">
-                        <img src="public/assets/img/source.png">
-                    </li>
+                    <li>My Background is in Front-end web development.</li>
                 </ul>
             </div>
         </div>
@@ -157,6 +146,34 @@
                     <!-- /grid-mask -->
                 </div>
 
+                <!-- PORTFOLIO IMAGE 2 -->
+                <div class="col-md-4 ">
+                    <div class="grid mask hideme">
+                        <figure> <img class="img-responsive" src="public/images/his2.PNG" alt="">
+                            <figcaption>
+                                <h5>HIS Website</h5>
+                                <a data-toggle="modal" href="#myModal2" class="btn btn-default">More Details</a> </figcaption>
+                            <!-- /figcaption -->
+                        </figure>
+                        <!-- /figure -->
+                    </div>
+                    <!-- /grid-mask -->
+                </div>
+
+                <!-- PORTFOLIO IMAGE 3 -->
+                <div class="col-md-4 ">
+                    <div class="grid mask hideme">
+                        <figure> <img class="img-responsive" src="public/images/xyz.PNG" alt="">
+                            <figcaption>
+                                <h5>XYZprinting Website</h5>
+                                <a data-toggle="modal" href="#myModal3" class="btn btn-default">More Details</a> </figcaption>
+                            <!-- /figcaption -->
+                        </figure>
+                        <!-- /figure -->
+                    </div>
+                    <!-- /grid-mask -->
+                </div>
+
                 <!-- MODAL SHOW THE PORTFOLIO IMAGE. In this demo, all links point to this modal. You should create
                                       a modal for each of your projects. -->
 
@@ -176,128 +193,46 @@
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                             </div>
                         </div>
-                        <!-- /.modal-content -->
-                        <!--   </div>-->
-                        <!-- /.modal-dialog -->
-                        <!--  </div>-->
-                        <!-- /.modal -->
+                    </div>
+                    <!-- /col -->
+                </div>
 
-                        <!-- PORTFOLIO IMAGE 2 -->
-                        <!--  <div class="col-md-4">
-                             <div class="grid mask">
-                                 <figure> <img class="img-responsive" src="assets/img/portfolio/folio02.jpg" alt="">
-                                     <figcaption>
-                                         <h5>CONCEPT</h5>
-                                         <a data-toggle="modal" href="#myModal" class="btn btn-default">More Details</a> </figcaption>
-                                     <!-- /figcaption -->
-                        <!--   </figure>
-                          <!-- /figure -->
-                        <!--  </div>
-                         <!-- /grid-mask -->
-                        <!--  </div>
+                <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title">Health Information System</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p><img class="img-responsive" src="public/images/his2.PNG" alt=""></p>
+                                <p>An online health information system that is use by doctor's to examine or review the heart health condition of a patient.</p>
+                                <p><b><a target="_blank"href="http://his.stage.xyzprinting.com">Visit Site</a></b></p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /col -->
+                </div>
 
-                         <!-- PORTFOLIO IMAGE 3 -->
-                        <!--  <div class="col-md-4">
-                             <div class="grid mask">
-                                 <figure> <img class="img-responsive" src="assets/img/portfolio/folio03.jpg" alt="">
-                                     <figcaption>
-                                         <h5>MOBILE UI KIT</h5>
-                                         <a data-toggle="modal" href="#myModal" class="btn btn-default">More Details</a> </figcaption>
-                                     <!-- /figcaption -->
-                        <!--  </figure>
-                         <!-- /figure -->
-                        <!--   </div>
-                          <!-- /grid-mask -->
-                        <!--    </div>
-                       </div>
-                       <!-- /row -->
-
-                        <!-- PORTFOLIO IMAGE 4 -->
-                        <!--  <div class="row">
-                             <div class="col-md-4 ">
-                                 <div class="grid mask">
-                                     <figure> <img class="img-responsive" src="assets/img/portfolio/folio04.jpg" alt="">
-                                         <figcaption>
-                                             <h5>CONCEPT</h5>
-                                             <a data-toggle="modal" href="#myModal" class="btn btn-default">More Details</a> </figcaption>
-                                         <!-- /figcaption -->
-                        <!--  </figure>
-                          <!-- /figure -->
-                        <!--  </div>
-                         <!-- /grid-mask -->
-                        <!--  </div>
-
-                         <!-- PORTFOLIO IMAGE 5 -->
-                        <!--  <div class="col-md-4">
-                             <div class="grid mask">
-                                 <figure> <img class="img-responsive" src="assets/img/portfolio/folio05.jpg" alt="">
-                                     <figcaption>
-                                         <h5>UX / UI</h5>
-                                         <a data-toggle="modal" href="#myModal" class="btn btn-default">More Details</a> </figcaption>
-                                     <!-- /figcaption -->
-                        <!--  </figure>
-                         <!-- /figure -->
-                        <!--  </div>
-                         <!-- /grid-mask -->
-                        <!--  </div>
-
-                         <!-- PORTFOLIO IMAGE 6 -->
-                        <!--  <div class="col-md-4">
-                             <div class="grid mask">
-                                 <figure> <img class="img-responsive" src="assets/img/portfolio/folio06.jpg" alt="">
-                                     <figcaption>
-                                         <h5>CMS INTEGRATION</h5>
-                                         <a data-toggle="modal" href="#myModal" class="btn btn-default">More Details</a> </figcaption>
-                                     <!-- /figcaption -->
-                        <!--  </figure>
-                         <!-- /figure -->
-                        <!--  </div>
-                         <!-- /grid-mask -->
-                        <!--  </div>
-                         <!-- /col -->
-                        <!--  </div>
-                         <!-- /row -->
-                        <!-- PORTFOLIO IMAGE 7 -->
-                        <!--  <div class="row">
-                             <div class="col-md-4 ">
-                                 <div class="grid mask">
-                                     <figure> <img class="img-responsive" src="assets/img/portfolio/folio07.jpg" alt="">
-                                         <figcaption>
-                                             <h5>MOCKUP</h5>
-                                             <a data-toggle="modal" href="#myModal" class="btn btn-default">More Details</a> </figcaption>
-                                         <!-- /figcaption -->
-                        <!--  </figure>
-                         <!-- /figure -->
-                        <!--   </div>
-                          <!-- /grid-mask -->
-                        <!--   </div>
-
-                          <!-- PORTFOLIO IMAGE 8 -->
-                        <!--  <div class="col-md-4">
-                             <div class="grid mask">
-                                 <figure> <img class="img-responsive" src="assets/img/portfolio/folio08.jpg" alt="">
-                                     <figcaption>
-                                         <h5>WEB ICONS</h5>
-                                         <a data-toggle="modal" href="#myModal" class="btn btn-default">More Details</a> </figcaption>
-                                     <!-- /figcaption -->
-                        <!--  </figure>
-                         <!-- /figure -->
-                        <!--   </div>
-                          <!-- /grid-mask -->
-                        <!--  </div>
-
-                         <!-- PORTFOLIO IMAGE 9 -->
-                        <!-- <div class="col-md-4">
-                            <div class="grid mask">
-                                <figure> <img class="img-responsive" src="assets/img/portfolio/folio09.jpg" alt="">
-                                    <figcaption>
-                                        <h5>UX / UI</h5>
-                                        <a data-toggle="modal" href="#myModal" class="btn btn-default">More Details</a> </figcaption>
-                                    <!-- /figcaption -->
-                        <!--  </figure>
-                         <!-- /figure -->
-                        <!--  </div>
-                         <!-- /grid-mask -->
+                <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title">XYZ Website</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p><img class="img-responsive" src="public/images/xyz.PNG" alt=""></p>
+                                <p>I am maintaining this website, actually we are a team who maintains websites of XYZprinting.  The website is available in different regions with different languages such as Korea, Japan, Taiwan, Europe, Thailand and China.</p>
+                                <p><b><a target="_blank"href="http://us.xyzprinting.com/">Visit Site</a></b></p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
                     </div>
                     <!-- /col -->
                 </div>
@@ -314,27 +249,47 @@
             <div class="row centered">
                 <h2 class="centered hideme">Skills</h2>
                 <hr>
-                <div class="col-lg-3 centered hideme"> <img class="img img-circle" src="public/assets/img/team/html1.jpg" height="120px" width="120px" alt="">
+                <div class="col-lg-3 centered hideme mySkills"> <img class="img img-circle" src="public/assets/img/team/html1.jpg" height="120px" width="120px" alt="">
                     <h4>HTML</h4>
                     <p>I have advance knowledge in HTML.</p>
                 </div>
-                <div class="col-lg-3 centered hideme"> <img class="img img-circle" src="public/assets/img/team/css1.png" height="120px" width="120px" alt="">
+                <div class="col-lg-3 centered hideme mySkills"> <img class="img img-circle" src="public/assets/img/team/css1.png" height="120px" width="120px" alt="">
                     <h4>CSS3</h4>
-                    <p>I have advance knowledge in CSS. I am using SASS to generate my CSS file.</p>
+                    <p>I have advance knowledge in CSS. I am using bootstrap library for responsive web design.</p>
                 </div>
-                <div class="col-lg-3 centered hideme"> <img class="img img-circle" src="public/assets/img/team/php.jpg" height="120px" width="120px" alt="">
-                    <h4>phpMyAdmin</h4>
-                    <p>I have intermediate knowledge in phpMyAdmin database.</p>
+                <div class="col-lg-3 centered hideme mySkills"> <img class="img img-circle" src="public/assets/img/team/sass.png" height="120px" width="120px" alt="">
+                    <h4>SASS</h4>
+                    <p>I have advance knowledge in SASS.</p>
                 </div>
-                <div class="col-lg-3 centered hideme"> <img class="img img-circle" src="public/assets/img/team/js.png" height="120px" width="120px" alt="">
+                <div class="col-lg-3 centered hideme mySkills"> <img class="img img-circle" src="public/assets/img/team/js.png" height="120px" width="120px" alt="">
                     <h4>Javascript</h4>
                     <p>I have intermediate knowledge in Javascript.</p>
                 </div>
-                <div class="col-lg-3 centered hideme"> <img class="img img-circle" src="public/assets/img/team/jquery.png" height="120px" width="120px" alt="">
+                <div class="col-lg-3 centered hideme mySkills"> <img class="img img-circle" src="public/assets/img/team/jquery.png" height="120px" width="120px" alt="">
                     <h4>JQuery</h4>
                     <p>I have intermediate knowledge in jquery.</p>
                 </div>
-                <div class="col-lg-3 centered hideme"> <img class="img img-circle" src="public/assets/img/team/adobe.jpg" height="120px" width="120px" alt="">
+                <div class="col-lg-3 centered hideme mySkills"> <img class="img img-circle" src="public/assets/img/team/angular.png" height="120px" width="120px" alt="">
+                    <h4>AngularJs</h4>
+                    <p>I have intermediate knowledge in AngularJS programming.</p>
+                </div>
+                <div class="col-lg-3 centered hideme mySkills"> <img class="img img-circle" src="public/assets/img/team/php.jpg" height="120px" width="120px" alt="">
+                    <h4>phpMyAdmin</h4>
+                    <p>I have intermediate knowledge in phpMyAdmin database.</p>
+                </div>
+                <div class="col-lg-3 centered hideme mySkills"> <img class="img img-circle" src="public/assets/img/team/logo_play.png" height="120px" width="120px" alt="">
+                    <h4>Play framework</h4>
+                    <p>I have intermediate knowledge in Play framework.</p>
+                </div>
+                <div class="col-lg-3 centered hideme mySkills"> <img class="img img-circle" src="public/assets/img/team/source.png" height="120px" width="120px" alt="">
+                    <h4>Source Tree Git</h4>
+                    <p>I am very familiar in using Git.</p>
+                </div>
+                <div class="col-lg-3 centered hideme mySkills"> <img class="img img-circle" src="public/assets/img/team/ij.png" height="120px" width="120px" alt="">
+                    <h4>IntelliJIdea</h4>
+                    <p>I am using ItelliJIdea as my IDE.</p>
+                </div>
+                <div class="col-lg-3 centered hideme mySkills"> <img class="img img-circle" src="public/assets/img/team/adobe.jpg" height="120px" width="120px" alt="">
                     <h4>Adobe Photoshop</h4>
                     <p>I have intermediate knowledge in editing pictures in Adobe Photoshop.</p>
                 </div>
@@ -450,7 +405,7 @@
             // on click tooltip with custom content
             $('a.clickTip').aToolTip({
                 clickIt: true,
-                tipContent: '+63 916 122 5819'
+                tipContent: '+63 975 352 7076'
             });
 
             // List of all parameters and their default values:
