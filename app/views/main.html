@@ -21,18 +21,144 @@
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
     <script src="public/assets/js/jquery.min.js"></script>
     <script type="text/javascript" src="public/assets/js/modernizr.custom.js"></script>
+    <script type="text/javascript" src="public/assets/angular/angular.min.js"></script>
+    <script type="text/javascript" src="public/assets/angular/angular-filter.min.js"></script>
+    <script type="text/javascript" src="public/assets/angular/angular-sanitize.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script type="text/javascript" src="public/assets/js/html5shiv.js"></script>
+    <script type="text/javascript" src="public/assets/js/respond.min.js"></script>
     <![endif]-->
 
+    <script>
+        var website = angular.module('website', []);
+        website.controller('headerCtrl', function($scope) {
+            $scope.navLinks = [
+                {
+                    url: "#home",
+                    navName: "Home"
+                },{
+                    url: "#about",
+                    navName: "About Me"
+                },{
+                    url: "#services",
+                    navName: "Services"
+                },{
+                    url: "#portfolio",
+                    navName: "Portfolio"
+                },{
+                    url: "#skills",
+                    navName: "Skills"
+                },{
+                    url: "#contact",
+                    navName: "Contact"
+                },
+            ];
+        });
+
+        website.controller('portfolioCtrl', function($scope) {
+            $scope.portfolio = [
+                {
+                    id: 1,
+                    image: "public/images/p1.PNG",
+                    caption: "PUSOD, Inc.",
+                    link: "#myModal"
+                },{
+                    id: 2,
+                    image: "public/images/his2.PNG",
+                    caption: "HIS Website",
+                    link: "#myModal2"
+                },{
+                    id: 3,
+                    image: "public/images/xyz.PNG",
+                    caption: "XYZ Website",
+                    link: "#myModal3"
+                }
+            ];
+
+            $scope.modals = [
+                {
+                    id: "myModal",
+                    title: "Online Inquiry and Reservation for TLCC",
+                    thumbnail: "public/images/p1.PNG",
+                    content: "I developed this website during my On-the-Job-Training at PUSOD, Inc. It is an online inquiry and reservation system for which client can inquire and book for a reservation on the facility that PUSOD, Inc. owned.  They gave me a deadline and I accomplish the task on time for which the company has had positive feedback.",
+                    link: "http://pusod.org/"
+                },{
+                    id: "myModal2",
+                    title: "Health Information System",
+                    thumbnail: "public/images/his2.PNG",
+                    content: "An online health information system that is use by doctor's to examine or review the heart health condition of a patient.",
+                    link: "http://his.stage.xyzprinting.com"
+                },{
+                    id: "myModal3",
+                    title: "XYZ Website",
+                    thumbnail: "public/images/xyz.PNG",
+                    content: "I am maintaining this website, actually we are a team who maintains websites of XYZprinting.  The website is available in different regions with different languages such as Korea, Japan, Taiwan, Europe, Thailand and China.",
+                    link: "http://us.xyzprinting.com/"
+                }
+            ];
+        });
+
+        website.controller('skillCtrl', function($scope) {
+            $scope.skills = [
+                {
+                    thumb: "public/assets/img/team/html1.jpg",
+                    title: "HTML / HTML5",
+                    desc: "I have advance knowledge in HTML."
+                },{
+                    thumb: "public/assets/img/team/css1.png",
+                    title: "CSS / CSS3",
+                    desc: "I have advance knowledge in CSS. I am using bootstrap library for responsive web design."
+                },{
+                    thumb: "public/assets/img/team/sass.png",
+                    title: "SASS",
+                    desc: "I have advance knowledge in SASS."
+                },{
+                    thumb: "public/assets/img/team/bootstrap.png",
+                    title: "Bootstrap",
+                    desc: "I am proficient in Bootstrap library for responsive web layout."
+                },{
+                    thumb: "public/assets/img/team/js.png",
+                    title: "Javascript",
+                    desc: "I have intermediate knowledge in Javascript."
+                },{
+                    thumb: "public/assets/img/team/jquery.png",
+                    title: "Jquery",
+                    desc: "I have intermediate knowledge in Jquery."
+                },{
+                    thumb: "public/assets/img/team/angular.png",
+                    title: "Angular",
+                    desc: "I have intermediate knowledge in Angularjs."
+                },{
+                    thumb: "public/assets/img/team/php.jpg",
+                    title: "phpMyAdmin",
+                    desc: "I have intermediate knowledge in phpMyAdmin database."
+                },{
+                    thumb: "public/assets/img/team/logo_play.png",
+                    title: "Play framework",
+                    desc: "I have intermediate knowledge in Play framework."
+                },{
+                    thumb: "public/assets/img/team/source.png",
+                    title: "Source Tree Git",
+                    desc: "I am very familiar in using Git by using Source tree."
+                },{
+                    thumb: "public/assets/img/team/ij.png",
+                    title: "IntelliJIdea",
+                    desc: "I am using ItelliJIdea as my IDE."
+                },{
+                    thumb: "public/assets/img/team/adobe.jpg",
+                    title: "Adobe Photoshop",
+                    desc: "I have intermediate knowledge in editing pictures in Adobe Photoshop."
+                }
+            ];
+        });
+    </script>
 </head>
 
-<body data-spy="scroll" data-offset="0" data-target="#navbar-main">
-<div id="navbar-main">
+<body data-spy="scroll" data-offset="0" data-target="#navbar-main" ng-app="website">
+<div id="navbar-main" ng-controller="headerCtrl">
     <!-- Fixed navbar -->
     <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
@@ -41,12 +167,7 @@
                 <a class="navbar-brand" href="#home"><img src="public/images/jlogo.png" class="jlogo"></a> </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#home" class="smoothScroll">Home</a></li>
-                    <li> <a href="#about" class="smoothScroll"> About Me</a></li>
-                    <li> <a href="#services" class="smoothScroll"> Services</a></li>
-                    <li> <a href="#portfolio" class="smoothScroll"> Portfolio</a></li>
-                    <li> <a href="#team" class="smoothScroll">Skills</a></li>
-                    <li> <a href="#contact" class="smoothScroll"> Contact</a></li>
+                    <li ng-repeat="nav in navLinks"><a href="{{nav.url}}" class="smoothScroll">{{nav.navName}}</a></li>
                 </ul>
             </div>
             <!--/.nav-collapse -->
@@ -119,7 +240,7 @@
 <!-- container -->
 
 <!-- ==== PORTFOLIO ==== -->
-<div id="portfolio" name="portfolio">
+<div id="portfolio" name="portfolio" ng-controller="portfolioCtrl">
     <div class="container">
         <div class="row">
             <h2 class="centered hideme">My Portfolio</h2>
@@ -132,41 +253,13 @@
         <div class="container">
             <div class="row">
 
-                <!-- PORTFOLIO IMAGE 1 -->
-                <div class="col-md-4 ">
+                <!-- PORTFOLIO IMAGE -->
+                <div class="col-md-4" ng-repeat="item in portfolio">
                     <div class="grid mask hideme">
-                        <figure> <img class="img-responsive" src="public/images/p1.PNG" alt="">
+                        <figure> <img class="img-responsive" src="{{item.image}}" alt="">
                             <figcaption>
-                                <h5>PUSOD, Inc.</h5>
-                                <a data-toggle="modal" href="#myModal" class="btn btn-default">More Details</a> </figcaption>
-                            <!-- /figcaption -->
-                        </figure>
-                        <!-- /figure -->
-                    </div>
-                    <!-- /grid-mask -->
-                </div>
-
-                <!-- PORTFOLIO IMAGE 2 -->
-                <div class="col-md-4 ">
-                    <div class="grid mask hideme">
-                        <figure> <img class="img-responsive" src="public/images/his2.PNG" alt="">
-                            <figcaption>
-                                <h5>HIS Website</h5>
-                                <a data-toggle="modal" href="#myModal2" class="btn btn-default">More Details</a> </figcaption>
-                            <!-- /figcaption -->
-                        </figure>
-                        <!-- /figure -->
-                    </div>
-                    <!-- /grid-mask -->
-                </div>
-
-                <!-- PORTFOLIO IMAGE 3 -->
-                <div class="col-md-4 ">
-                    <div class="grid mask hideme">
-                        <figure> <img class="img-responsive" src="public/images/xyz.PNG" alt="">
-                            <figcaption>
-                                <h5>XYZprinting Website</h5>
-                                <a data-toggle="modal" href="#myModal3" class="btn btn-default">More Details</a> </figcaption>
+                                <h5>{{item.caption}}</h5>
+                                <a data-toggle="modal" href="{{item.link}}" class="btn btn-default">More Details</a> </figcaption>
                             <!-- /figcaption -->
                         </figure>
                         <!-- /figure -->
@@ -177,17 +270,17 @@
                 <!-- MODAL SHOW THE PORTFOLIO IMAGE. In this demo, all links point to this modal. You should create
                                       a modal for each of your projects. -->
 
-                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal fade" ng-repeat="mod in modals" id="{{mod.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                <h4 class="modal-title">Online Inquiry and Reservation for TLCC</h4>
+                                <h4 class="modal-title">{{mod.title}}</h4>
                             </div>
                             <div class="modal-body">
-                                <p><img class="img-responsive" src="public/images/p1.PNG" alt=""></p>
-                                <p>I developed this website during my On-the-Job-Training at PUSOD, Inc. It is an online inquiry and reservation system for which client can inquire and book for a reservation on the facility that PUSOD, Inc. owned.  They gave me a deadline and I accomplish the task on time for which the company has had positive feedback.</p>
-                                <p><b><a target="_blank"href="http://pusod.org/">Visit Site</a></b></p>
+                                <p><img class="img-responsive" ng-src="{{mod.thumbnail}}" alt=""></p>
+                                <p>{{mod.content}}</p>
+                                <p><b><a target="_blank" ng-href="{{mod.link}}">Visit Site</a></b></p>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -197,45 +290,6 @@
                     <!-- /col -->
                 </div>
 
-                <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                <h4 class="modal-title">Health Information System</h4>
-                            </div>
-                            <div class="modal-body">
-                                <p><img class="img-responsive" src="public/images/his2.PNG" alt=""></p>
-                                <p>An online health information system that is use by doctor's to examine or review the heart health condition of a patient.</p>
-                                <p><b><a target="_blank"href="http://his.stage.xyzprinting.com">Visit Site</a></b></p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /col -->
-                </div>
-
-                <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                <h4 class="modal-title">XYZ Website</h4>
-                            </div>
-                            <div class="modal-body">
-                                <p><img class="img-responsive" src="public/images/xyz.PNG" alt=""></p>
-                                <p>I am maintaining this website, actually we are a team who maintains websites of XYZprinting.  The website is available in different regions with different languages such as Korea, Japan, Taiwan, Europe, Thailand and China.</p>
-                                <p><b><a target="_blank"href="http://us.xyzprinting.com/">Visit Site</a></b></p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /col -->
-                </div>
                 <!-- /row -->
             </div>
             <!-- /row -->
@@ -244,58 +298,15 @@
     <!-- /container -->
 
     <!-- ==== TEAM MEMBERS ==== -->
-    <div id="team" name="team">
+    <div id="skills" name="team" ng-controller="skillCtrl">
         <div class="container">
             <div class="row centered">
                 <h2 class="centered hideme">Skills</h2>
                 <hr>
-                <div class="col-lg-3 centered hideme mySkills"> <img class="img img-circle" src="public/assets/img/team/html1.jpg" height="120px" width="120px" alt="">
-                    <h4>HTML</h4>
-                    <p>I have advance knowledge in HTML.</p>
-                </div>
-                <div class="col-lg-3 centered hideme mySkills"> <img class="img img-circle" src="public/assets/img/team/css1.png" height="120px" width="120px" alt="">
-                    <h4>CSS3</h4>
-                    <p>I have advance knowledge in CSS. I am using bootstrap library for responsive web design.</p>
-                </div>
-                <div class="col-lg-3 centered hideme mySkills"> <img class="img img-circle" src="public/assets/img/team/sass.png" height="120px" width="120px" alt="">
-                    <h4>SASS</h4>
-                    <p>I have advance knowledge in SASS.</p>
-                </div>
-                <div class="col-lg-3 centered hideme mySkills"> <img class="img img-circle" src="public/assets/img/team/bootstrap.png" height="120px" width="120px" alt="">
-                    <h4>Bootstrap</h4>
-                    <p>I am proficient in Bootstrap library for responsive web layout.</p>
-                </div>
-                <div class="col-lg-3 centered hideme mySkills"> <img class="img img-circle" src="public/assets/img/team/js.png" height="120px" width="120px" alt="">
-                    <h4>Javascript</h4>
-                    <p>I have intermediate knowledge in Javascript.</p>
-                </div>
-                <div class="col-lg-3 centered hideme mySkills"> <img class="img img-circle" src="public/assets/img/team/jquery.png" height="120px" width="120px" alt="">
-                    <h4>JQuery</h4>
-                    <p>I have intermediate knowledge in jquery.</p>
-                </div>
-                <div class="col-lg-3 centered hideme mySkills"> <img class="img img-circle" src="public/assets/img/team/angular.png" height="120px" width="120px" alt="">
-                    <h4>AngularJs</h4>
-                    <p>I have intermediate knowledge in AngularJS programming.</p>
-                </div>
-                <div class="col-lg-3 centered hideme mySkills"> <img class="img img-circle" src="public/assets/img/team/php.jpg" height="120px" width="120px" alt="">
-                    <h4>phpMyAdmin</h4>
-                    <p>I have intermediate knowledge in phpMyAdmin database.</p>
-                </div>
-                <div class="col-lg-3 centered hideme mySkills"> <img class="img img-circle" src="public/assets/img/team/logo_play.png" height="120px" width="120px" alt="">
-                    <h4>Play framework</h4>
-                    <p>I have intermediate knowledge in Play framework.</p>
-                </div>
-                <div class="col-lg-3 centered hideme mySkills"> <img class="img img-circle" src="public/assets/img/team/source.png" height="120px" width="120px" alt="">
-                    <h4>Source Tree Git</h4>
-                    <p>I am very familiar in using Git.</p>
-                </div>
-                <div class="col-lg-3 centered hideme mySkills"> <img class="img img-circle" src="public/assets/img/team/ij.png" height="120px" width="120px" alt="">
-                    <h4>IntelliJIdea</h4>
-                    <p>I am using ItelliJIdea as my IDE.</p>
-                </div>
-                <div class="col-lg-3 centered hideme mySkills"> <img class="img img-circle" src="public/assets/img/team/adobe.jpg" height="120px" width="120px" alt="">
-                    <h4>Adobe Photoshop</h4>
-                    <p>I have intermediate knowledge in editing pictures in Adobe Photoshop.</p>
+                <div class="col-lg-3 centered hideme mySkills" ng-repeat="s in skills">
+                    <img class="img img-circle" ng-src="{{s.thumb}}" height="120px" width="120px" alt="">
+                    <h4>{{s.title}}</h4>
+                    <p>{{s.desc}}</p>
                 </div>
                 <div class="col-lg-8 col-lg-offset-2 centered hideme">
                     <p class="large"> </p>
