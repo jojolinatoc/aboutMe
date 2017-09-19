@@ -274,11 +274,19 @@ a:before, a:after {
 	border: 1px solid #fff;
 }
 #about {
-	background: #fff;
+	background-color: #fff;
 	padding-top: 80px;
 	padding-right: 0;
 	padding-left: 0;
-	padding-bottom: 60px;
+    padding-bottom:60px;
+}
+.aboutJojo{
+    border-radius:50%;
+    overflow:hidden;
+    border:solid 1pt #fff;
+    background:#fff;
+    width:300px;
+    margin:20px auto;
 }
 #about img {
 	margin-top: 0;
