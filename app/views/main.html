@@ -86,6 +86,13 @@
             $scope.modals = [
                 {
                     id: "myModal4",
+                    title: "HiMirror Website",
+                    thumbnail: "public/images/himirror.PNG",
+                    content: "An online store that promotes HiMirror which is a smart mirror that assess your skin’s condition, make the best use of your existing skincare products, supplemented with reviews by those with the same skincare concerns as yourself.",
+                    link: "https://www.himirror.com/us_en/home"
+                },
+                {
+                    id: "myModal4",
                     title: "Service Center",
                     thumbnail: "public/images/service-center.PNG",
                     content: "This is an online customer service that helps the clients about the products of XYZprinting.  I am the one that develop the front-end of this website.  It is responsive and accessible through different view ports such as Desktop, Tablets and Smart phones.  I use Play 2.4 framework, HTML, CSS, AngularJS, Javascript, Jquery and Bootstrap to develop this website.",
@@ -171,7 +178,6 @@
 
 <body data-spy="scroll" data-offset="0" data-target="#navbar-main" ng-app="website">
 <div id="navbar-main" ng-controller="headerCtrl">
-    <!-- Fixed navbar -->
     <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -182,21 +188,17 @@
                     <li ng-repeat="nav in navLinks"><a href="{{nav.url}}" class="smoothScroll">{{nav.navName}}</a></li>
                 </ul>
             </div>
-            <!--/.nav-collapse -->
         </div>
     </div>
 </div>
 
-<!-- ==== HEADERWRAP ==== -->
 <div id="headerwrap" name="home">
     <header class="clearfix">
         <h1 class="homeh1">Jojo Linatoc</h1>
         <p class="homep">Front-end Web Developer</p>
         <a href="#portfolio" class="smoothScroll btn btn-lg">See my works</a> </header>
 </div>
-<!-- /headerwrap -->
 
-<!-- ==== ABOUT ==== -->
 <div id="about" name="about">
     <div class="container">
         <div class="row white">
@@ -217,12 +219,9 @@
                 </ul>
             </div>
         </div>
-        <!-- row -->
     </div>
 </div>
-<!-- container -->
 
-<!-- ==== SERVICES ==== -->
 <div id="services" name="services">
     <div class="container">
         <div class="row">
@@ -246,12 +245,9 @@
                 </div>
             </div>
         </div>
-        <!-- row -->
     </div>
 </div>
-<!-- container -->
 
-<!-- ==== PORTFOLIO ==== -->
 <div id="portfolio" name="portfolio" ng-controller="portfolioCtrl">
 <div class="container">
     <div class="row">
@@ -261,26 +257,17 @@
             <p class="large hideme">Some of my works are not yet uploaded.</p>
         </div>
     </div>
-    <!-- /row -->
     <div class="container">
         <div class="row">
-
-            <!-- PORTFOLIO IMAGE -->
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" ng-repeat="item in portfolio">
                 <div class="grid mask hideme">
                     <figure> <img class="img-responsive" src="{{item.image}}" alt="">
                         <figcaption>
                             <h5>{{item.caption}}</h5>
                             <a data-toggle="modal" href="{{item.link}}" class="btn btn-default">More Details</a> </figcaption>
-                        <!-- /figcaption -->
                     </figure>
-                    <!-- /figure -->
                 </div>
-                <!-- /grid-mask -->
             </div>
-
-            <!-- MODAL SHOW THE PORTFOLIO IMAGE. In this demo, all links point to this modal. You should create
-                                  a modal for each of your projects. -->
 
             <div class="modal fade" ng-repeat="mod in modals" id="{{mod.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
                 <div class="modal-dialog">
@@ -299,17 +286,11 @@
                         </div>
                     </div>
                 </div>
-                <!-- /col -->
             </div>
-
-            <!-- /row -->
         </div>
-        <!-- /row -->
     </div>
 </div>
-<!-- /container -->
 
-<!-- ==== TEAM MEMBERS ==== -->
 <div id="skills" name="team" ng-controller="skillCtrl">
     <div class="container">
         <div class="row centered">
@@ -318,18 +299,14 @@
             <div class="col-lg-3 col-sm-4 col-md-4 col-xs-6 centered hideme mySkills" ng-repeat="s in skills">
                 <img class="img img-circle" ng-src="{{s.thumb}}" height="120px" width="120px" alt="">
                 <h4>{{s.title}}</h4>
-                <!--<p>{{s.desc}}</p>-->
             </div>
             <div class="col-lg-8 col-lg-offset-2 centered hideme">
                 <p class="large"> </p>
             </div>
         </div>
     </div>
-    <!-- row -->
 </div>
-<!-- container -->
 
-<!-- ==== CONTACT ==== -->
 <div id="contact" name="contact">
     <div class="container">
         <div class="row">
@@ -357,8 +334,6 @@
                     <button class="btn btn btn-lg" id="b1" onclick="$('.show_message').show();$('#b2').show();$(this).hide();" type="submit">Send Message</button>
                     <button class="btn btn btn-lg" id="b2" onclick="$('.show_message').hide();$('#b1').show();$(this).hide();" style="display:none;"type="submit">Cancel</button>
                 </div>
-                <!-- Do not change the code! -->
-                <!-- Do not change the code! -->
                 <div class="show_message" style="display:none;">
                     <a id="foxyform_embed_link_702501" href="#"> </a>
                     <script type="text/javascript">
@@ -370,16 +345,12 @@
                         }(document, "script"));
                     </script>
                 </div>
-                <!-- Do not change the code! -->
-                <!-- Do not change the code! -->
-                <!-- form -->
+
             </div>
         </div>
-        <!-- row -->
 
     </div>
 </div>
-<!-- container -->
 
 <div id="footerwrap">
     <div class="container">
@@ -398,22 +369,13 @@
     </div>
 </div>
 
-<!-- Bootstrap core JavaScript
-    ================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
 <script>
     $(document).ready(function() {
-
-        /* Every time the window is scrolled ... */
         $(window).scroll( function(){
-
-            /* Check the location of each desired element */
             $('.hideme').each( function(i){
 
                 var bottom_of_object = $(this).offset().top + $(this).outerHeight();
                 var bottom_of_window = $(window).scrollTop() + $(window).height();
-
-                /* If the object is completely visible in the window, fade it it */
                 if( bottom_of_window > bottom_of_object ){
 
                     $(this).animate({'opacity':'1'},1000);
@@ -428,36 +390,31 @@
 </script>
 
 <script>
-    // initiate the plugin after DOM has loaded
     $(function(){
-        // on click tooltip with custom content
         $('a.clickTip').aToolTip({
             clickIt: true,
             tipContent: '+63 975 352 7076'
         });
 
-        // List of all parameters and their default values:
         $('a').aToolTip({
-            // no need to change/override
             closeTipBtn: 'aToolTipCloseBtn',
             toolTipId: 'aToolTip',
-            // ok to override
 
-            clickIt: true,					// set to true for click activated tooltip
-            inSpeed: 200,					// Speed tooltip fades in
-            outSpeed: 100,					// Speed tooltip fades out
-            tipContent: '',					// Pass in content or it will use objects 'title' attribute
-            toolTipClass: 'defaultTheme',	// Set class name for custom theme/styles
-            xOffset: 5,						// x position
-            yOffset: 5,						// y position
-            onShow: null,					// callback function that fires after atooltip has shown
-            onHide: null					// callback function that fires after atooltip has faded out
+            clickIt: true,
+            inSpeed: 200,
+            outSpeed: 100,
+            tipContent: '',
+            toolTipClass: 'defaultTheme',
+            xOffset: 5,
+            yOffset: 5,
+            onShow: null,
+            onHide: null
         });
 
     });
 
 </script>
-<!--for tooltip-->
+
 <script type="text/javascript" src="public/javascripts/jquery.atooltip.min.js"></script>
 
 <script type="text/javascript" src="public/assets/js/bootstrap.min.js"></script>
