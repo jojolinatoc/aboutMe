@@ -621,6 +621,9 @@ body .header {
 .hideme{
 	opacity:0;
 }
+.showMe{
+    opacity:1;
+}
 .about_me{
 	list-style:none;
 }

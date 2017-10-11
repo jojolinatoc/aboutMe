@@ -17,6 +17,7 @@
     <link href="public/assets/css/main.css" rel="stylesheet">
     <link href="public/assets/css/font-awesome.min.css" rel="stylesheet">
     <link href="public/assets/css/animate-custom.css" rel="stylesheet">
+    <link href="public/assets/css/animate.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
     <script src="public/assets/js/jquery.min.js"></script>
@@ -188,10 +189,10 @@
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-                <a class="navbar-brand" href="#home"><img src="public/images/jlogo.png" class="jlogo"></a> </div>
+                <a class="navbar-brand animated rotateIn" href="#home"><img src="public/images/jlogo.png" class="jlogo"></a> </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li ng-repeat="nav in navLinks"><a href="{{nav.url}}" class="smoothScroll">{{nav.navName}}</a></li>
+                    <li ng-repeat="nav in navLinks" class="animated bounceInDown"><a href="{{nav.url}}" class="smoothScroll">{{nav.navName}}</a></li>
                 </ul>
             </div>
         </div>
@@ -200,9 +201,9 @@
 
 <div id="headerwrap" name="home">
     <header class="clearfix">
-        <h1 class="homeh1">Jojo Linatoc</h1>
-        <p class="homep">Front-end Web Developer</p>
-        <a href="#portfolio" class="smoothScroll btn btn-lg">See my works</a> </header>
+        <h1 class="homeh1 animated rotateIn">Jojo Linatoc</h1>
+        <p class="homep animated slideInDown">Front-end Web Developer</p>
+        <a href="#portfolio" class="smoothScroll btn btn-lg animated slideInDown">See my works</a> </header>
 </div>
 
 <div id="about" name="about">
@@ -379,44 +380,13 @@
     $(document).ready(function() {
         $(window).scroll( function(){
             $('.hideme').each( function(i){
-
                 var bottom_of_object = $(this).offset().top + $(this).outerHeight();
                 var bottom_of_window = $(window).scrollTop() + $(window).height();
                 if( bottom_of_window > bottom_of_object ){
-
-                    $(this).animate({'opacity':'1'},1000);
-
+                    $(this).addClass('animated slideInLeft showMe');
                 }
-
             });
-
         });
-
-    });
-</script>
-
-<script>
-    $(function(){
-        $('a.clickTip').aToolTip({
-            clickIt: true,
-            tipContent: '+63 975 352 7076'
-        });
-
-        $('a').aToolTip({
-            closeTipBtn: 'aToolTipCloseBtn',
-            toolTipId: 'aToolTip',
-
-            clickIt: true,
-            inSpeed: 200,
-            outSpeed: 100,
-            tipContent: '',
-            toolTipClass: 'defaultTheme',
-            xOffset: 5,
-            yOffset: 5,
-            onShow: null,
-            onHide: null
-        });
-
     });
 
 </script>
