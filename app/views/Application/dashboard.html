@@ -1,0 +1,543 @@
+<html ng-app="website">
+	<head>
+		<title>Dashboard</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+		<link href="public/dashboard/stylesheets/sass/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="public/dashboard/sass/font/weather-icons.css">
+  		<link rel="stylesheet" href="public/dashboard/sass/font/weather-icons-wind.css">
+
+		<script type="text/javascript" src="public/dashboard/javascripts/angular.min.js"></script>
+		<script type="text/javascript">
+			var website = angular.module('website', []);
+		</script>
+	</head>
+	<body ng-controller="dashboardCtrl">
+		<div class="wrapper">
+			<div class="sidebar-header-mobile">
+                <h3>Admin</h3>
+            </div>
+            <nav id="sidebar">
+                <div class="sidebar-header">
+                    <h3>Admin</h3>
+                    <h3 class="strong">A</h3>
+                </div>
+                
+                <ul class="list-unstyled components">
+                	<div class="user-container">
+                		<div class=row>
+	                		<div class="col-lg-4 col-xs-4">
+	                			<img src="public/dashboard/img/aboutJojo.jpg" class="avatar">
+	                		</div>
+	                		<div class="col-lg-8 col-xs-8">
+	                			<p class="user-name">
+	                				Jojo Linatoc <br> 
+	                				<span class="glyphicon glyphicon-record"></span><span>Online</span>
+	                			</p>
+	                		</div>
+	                		<div class="col-lg-12 col-xs-12">
+	                			<div class="input-group add-on">
+							      <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text">
+							      <div class="input-group-btn">
+							        <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+							      </div>
+							    </div>
+	                		</div>
+	                	</div>	
+                	</div>
+                	<p class="main-nav">MAIN NAVIGATION</p>
+                    <li class="active">
+                        <a href="#" data-toggle="collapse" aria-expanded="false">
+                        	<span class="nav-icon glyphicon glyphicon-dashboard"></span>
+                        	<span class="nav-label">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="hasSubmenu">
+                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
+                        	<span class="nav-icon glyphicon glyphicon-duplicate"></span>
+                        	<span class="nav-label">Layout Options</span>
+                        </a>
+                        <ul class="collapse list-unstyled" id="pageSubmenu">
+                            <li><a href="#"><span class="glyphicon glyphicon-record"></span>Boxed</a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-record"></span>Fixed</a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-record"></span>Collapsed Sidebar</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" data-toggle="collapse" aria-expanded="false">
+	                        <span class="nav-icon glyphicon glyphicon-th-large"></span>
+	                        <span class="nav-label">App</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" >
+                        	<span class="nav-icon glyphicon glyphicon-calendar"></span>
+                        	<span class="nav-label">Calendar</span> 
+                        	<span class="float-right badge badge-error">3</span>	
+	                        <span class="float-right badge badge-info">17</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-toggle="collapse" aria-expanded="false">
+                        	<span class="nav-icon glyphicon glyphicon-adjust"></span>
+                        	<span class="nav-label">Charts</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-toggle="collapse" aria-expanded="false">
+                        	<span class="nav-icon glyphicon glyphicon-object-align-top"></span>
+                        	<span class="nav-label">UI Elements</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-toggle="collapse" aria-expanded="false">
+                        	<span class="nav-icon glyphicon glyphicon-list-alt"></span>
+                        	<span class="nav-label">Forms</span>
+                        </a>
+                    </li> 
+                    <li>
+                        <a href="#" data-toggle="collapse" aria-expanded="false">
+                        	<span class="nav-icon glyphicon glyphicon-th"></span>
+                        	<span class="nav-label">Tables</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-toggle="collapse" aria-expanded="false">
+                        	<span class="nav-icon glyphicon glyphicon-envelope"></span>
+                        	<span class="nav-label">Mailbox</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-toggle="collapse" aria-expanded="false">
+	                        <span class="nav-icon glyphicon glyphicon-map-marker"></span>
+	                        <span class="nav-label">Map</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-toggle="collapse" aria-expanded="false">
+                        	<span class="nav-icon glyphicon glyphicon-folder-close"></span>
+                        	<span class="nav-label">Sample Pages</span>
+                        </a>
+                    </li>
+                    <li >
+                        <a href="#" data-toggle="collapse" aria-expanded="false">
+                        	<span class="nav-icon glyphicon glyphicon-level-up"></span>
+                        	<span class="nav-label">Multilevel</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div id="content">
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+                                <i class="glyphicon glyphicon-menu-hamburger"></i>
+                            </button>
+
+                             <ul class="nav navbar-nav navbar-right">
+                                <li class="notifications">
+                                	<a href="#" ng-click="showNotif(1)">
+	                                	<span class="glyphicon glyphicon-envelope"></span>	
+	                                	<span class="badge badge-info">5</span>
+                                	</a>
+                                	<ul class="notification-holder" id="notif1" ng-class="{'active-notif animated zoomInDown': showNotif1, 'hide-notif zoomOutUp animated': !showNotif1}">
+                                		<p>You have 5 messages</p>
+                                		<div class="notif-wrapper">
+                                			<li class="email-notif-li">
+	                                			<a href="#">
+	                                				<div class="inbox">
+	                                					<img src="public/dashboard/img/aboutJojo.jpg" class="rounded-circle" alt="User Image">
+							                      		<h4>Lorem Ipsum
+							                      		
+							                      		<small><span class="glyphicon glyphicon-time"></span>15mins</small>	
+							                      		</h4>
+								                      	<p class="inbox-desc">The quick brown fox jumps over...</p>
+	                                				</div>
+							                    </a>
+	                                		</li>
+	                                		<li class="email-notif-li">
+	                                			<a href="#">
+	                                				<div class="inbox">
+	                                					<img src="public/dashboard/img/aboutJojo.jpg" class="rounded-circle" alt="User Image">
+							                      		<h4>Lorem Ipsum
+							                      		
+							                      		<small><span class="glyphicon glyphicon-time"></span>15mins</small>	
+							                      		</h4>
+								                      	<p class="inbox-desc">The quick brown fox jumps over...</p>
+	                                				</div>
+							                    </a>
+	                                		</li>
+	                                		<li class="email-notif-li">
+	                                			<a href="#">
+	                                				<div class="inbox">
+	                                					<img src="public/dashboard/img/aboutJojo.jpg" class="rounded-circle" alt="User Image">
+							                      		<h4>Lorem Ipsum
+							                      		
+							                      		<small><span class="glyphicon glyphicon-time"></span>15mins</small>	
+							                      		</h4>
+								                      	<p class="inbox-desc">The quick brown fox jumps over...</p>
+	                                				</div>
+							                    </a>
+	                                		</li>	
+	                                		<li class="email-notif-li">
+	                                			<a href="#">
+	                                				<div class="inbox">
+	                                					<img src="public/dashboard/img/aboutJojo.jpg" class="rounded-circle" alt="User Image">
+							                      		<h4>Lorem Ipsum
+							                      		
+							                      		<small><span class="glyphicon glyphicon-time"></span>15mins</small>	
+							                      		</h4>
+								                      	<p class="inbox-desc">The quick brown fox jumps over...</p>
+	                                				</div>
+							                    </a>
+	                                		</li>
+	                                		<li class="email-notif-li">
+	                                			<a href="#">
+	                                				<div class="inbox">
+	                                					<img src="public/dashboard/img/aboutJojo.jpg" class="rounded-circle" alt="User Image">
+							                      		<h4>Lorem Ipsum
+							                      		
+							                      		<small><span class="glyphicon glyphicon-time"></span>15mins</small>	
+							                      		</h4>
+								                      	<p class="inbox-desc">The quick brown fox jumps over...</p>
+	                                				</div>
+							                    </a>
+	                                		</li>
+                                		</div>
+                                		<a href="#" class="see-all-emails">
+                                			See all e-Mails
+                                		</a>
+                                	</ul>
+                                </li>
+                                <li class="notifications">
+                                	<a href="#" ng-click="showNotif(2)">
+                                	<span class="glyphicon glyphicon-bell"></span>
+                                	<span class="badge badge-warning">7</span>
+                                	<ul class="notification-holder" id="notif2" ng-class="{'active-notif animated zoomInDown': showNotif2, 'hide-notif zoomOutUp animated': !showNotif2}">
+                                		<p>You have 7 notifications</p>
+                                		<div class="notif-wrapper">
+                                			<li class="notif-li">
+	                                			<a href="#">
+	                                					<p class="notification-p"><span class="font-blue glyphicon glyphicon-user"></span> Curabitur id eros quis nunc suscipit blandit.</p>
+							                    </a>
+	                                		</li>
+	                                		<li class="notif-li">
+	                                			<a href="#">
+	                                					<p class="notification-p"><span class="font-yellow glyphicon glyphicon-warning-sign"></span> Curabitur id eros quis nunc suscipit blandit.</p>
+							                    </a>
+	                                		</li>
+	                                		<li class="notif-li">
+	                                			<a href="#">
+	                                					<p class="notification-p"><span class="font-red glyphicon glyphicon-user"></span> Curabitur id eros quis nunc suscipit blandit.</p>
+							                    </a>
+	                                		</li>
+	                                		<li class="notif-li">
+	                                			<a href="#">
+	                                					<p class="notification-p"><span class="font-aqua glyphicon glyphicon-shopping-cart"></span> Curabitur id eros quis nunc suscipit blandit.</p>
+							                    </a>
+	                                		</li> 
+	                                		<li class="notif-li">
+	                                			<a href="#">
+	                                					<p class="notification-p"><span class="font-red glyphicon glyphicon-user"></span> Curabitur id eros quis nunc suscipit blandit.</p>
+							                    </a>
+	                                		</li> 
+                                		</div>
+                                		<a href="#" class="see-all-notif">
+                                			View all
+                                		</a>
+                                	</ul>	
+                                </a></li>
+                                <li class="notifications"><a href="#" ng-click="showNotif(3)">
+                                	<span class="glyphicon glyphicon-flag"></span>	
+                                	<span class="badge badge-error">6</span>
+                                	<ul class="notification-holder" id="notif3" ng-class="{'active-notif animated zoomInDown': showNotif3, 'hide-notif zoomOutUp animated': !showNotif3}">
+                                		<p>You have 6 tasks</p>
+                                		<div class="notif-wrapper">
+                                			<li class="task-li">
+	                                			<a href="#">
+	                                				<p class="task-p">Lorem ipsum dolor sit amet <small>30%</small></p>
+	                                				<div class="progress">
+													  <div class="progress-bar" role="progressbar" aria-valuenow="30"
+													  aria-valuemin="0" aria-valuemax="100" style="width:30%">
+													  </div>
+													</div>
+							                    </a>
+	                                		</li> 
+	                                		<li class="task-li">
+	                                			<a href="#">
+	                                				<p class="task-p">Lorem ipsum dolor sit amet <small>40%</small></p>
+	                                				<div class="progress">
+													  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="40"
+													  aria-valuemin="0" aria-valuemax="100" style="width:40%">
+													  </div>
+													</div>
+							                    </a>
+	                                		</li> 
+	                                		<li class="task-li">
+	                                			<a href="#">
+	                                				<p class="task-p">Lorem ipsum dolor sit amet <small>50%</small></p>
+	                                				<div class="progress">
+													  <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="50"
+													  aria-valuemin="0" aria-valuemax="100" style="width:50%">
+													  </div>
+													</div>
+							                    </a>
+	                                		</li> 
+	                                		<li class="task-li">
+	                                			<a href="#">
+	                                				<p class="task-p">Lorem ipsum dolor sit amet <small>60%</small></p>
+	                                				<div class="progress">
+													  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60"
+													  aria-valuemin="0" aria-valuemax="100" style="width:60%">
+													  </div>
+													</div>
+							                    </a>
+	                                		</li> 
+	                                		<li class="task-li">
+	                                			<a href="#">
+	                                				<p class="task-p">Lorem ipsum dolor sit amet <small>70%</small></p>
+	                                				<div class="progress">
+													  <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="70"
+													  aria-valuemin="0" aria-valuemax="100" style="width:70%">
+													  </div>
+													</div>
+							                    </a>
+	                                		</li> 
+                                		</div>
+                                		<a href="#" class="see-all-task">
+                                			View all tasks
+                                		</a>
+                                	</ul>	
+                                </a></li>
+                                <li class="notifications">
+	                                <a href="#" ng-click="showNotif(4)">
+	                                	<img src="public/dashboard/img/aboutJojo.jpg" class="my-account">
+	                                </a>
+                                	<div class="profile-holder" id="notif4" ng-class="{'active-notif animated zoomInDown': showProfile, 'hide-notif zoomOutUp animated': !showProfile}">
+                                		<div class="row">
+                            				<div class="col-xs-3 padding-10">
+                            					<img src="public/dashboard/img/aboutJojo.jpg" class="my-account-dp">
+                                			</div>
+                                			<div class="col-xs-7 padding-10">
+                                				<p class="margin-t10">Jojo Linatoc</p>
+                                				<span>Member since April, 2016</span>	
+                                			</div>
+                                			<div class="col-xs-12" ><hr style="margin-top:0px"></div>
+                                			<div class="col-xs-12 ffs">
+                                				<ul class="list-inline">
+	                                				<li>
+	                                					<a href="#">Followers</a>	
+	                                				</li>
+	                                				<li>
+	                                					<a href="#">Friends</a>	
+	                                				</li>
+	                                				<li>
+	                                					<a href="#">Sales</a>	
+	                                				</li>
+	                                			</ul>
+                                			</div>
+                                			<div class="col-xs-12  ">
+                                				<div class="profile-button">
+                                					<button class="butn btn-left">Profile</button>	
+                                					<button class="butn btn-right">Sign out</button>	
+                                				</div>
+                                			</div>
+                                		</div> 
+                                	</div>	
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+
+                <div class="dashboard-content">
+                	<div class="row no-margin">
+                		 
+                		<h1 class="page-title">Dashboard<small>Control panel</small></h1> 
+                		 
+                		<div class="col-xl-3 col-lg-3 col-md-12 col-12">
+                			<div class="new-clients my-fav">
+                				<span class="my-fav-icon">
+                					<i class="glyphicon glyphicon-tag"></i>
+                				</span>	
+                				<div class="my-fav-info">
+                					<p>NEW CLIENTS<br>450</p>
+                					<div class="progress">
+									  <div class="progress-bar progress-bar-white" role="progressbar" aria-valuenow="45"
+									  aria-valuemin="0" aria-valuemax="100" style="width:45%">
+									  </div>
+									</div>
+									<p class="info-content">45% increase in 28 days</p>
+                				</div>	
+                			</div>
+                		</div>
+                		<div class="col-xl-3 col-lg-3 col-md-12 col-12">
+                			<div class="total-visits my-fav">
+                				<span class="my-fav-icon">
+                					<i class="glyphicon glyphicon-eye-open"></i>
+                				</span>	
+                				<div class="my-fav-info">
+                					<p>TOTAL VISITS<br>15,489</p>
+                					<div class="progress progress-bar-aqua">
+									  <div class="progress-bar progress-bar-white" role="progressbar" aria-valuenow="40"
+									  aria-valuemin="0" aria-valuemax="100" style="width:40%">
+									  </div>
+									</div>
+									<p class="info-content">40% Increase in 28 Days</p>
+                				</div>	
+                			</div>
+                		</div>
+                		<div class="col-xl-3 col-lg-3 col-md-12 col-12">
+                			<div class="downloads my-fav">
+                				<span class="my-fav-icon">
+                					<i class="glyphicon glyphicon-cloud-download"></i>
+                				</span>	
+                				<div class="my-fav-info">
+                					<p>DOWNLOADS<br>55,005</p>
+                					<div class="progress progress-bar-violet">
+									  <div class="progress-bar progress-bar-white" role="progressbar" aria-valuenow="85"
+									  aria-valuemin="0" aria-valuemax="100" style="width:85%">
+									  </div>
+									</div>
+									<p class="info-content">85% Increase in 28 Days</p>
+                				</div>	
+                			</div>
+                		</div>
+                		<div class="col-xl-3 col-lg-3 col-md-12 col-12">
+                			<div class="direct-chat my-fav">
+                				<span class="my-fav-icon">
+                					<i class="glyphicon glyphicon-comment"></i>
+                				</span>	
+                				<div class="my-fav-info">
+                					<p>DIRECT CHAT<br>13,921</p>
+                					<div class="progress progress-bar-red">
+									  <div class="progress-bar progress-bar-white" role="progressbar" aria-valuenow="50"
+									  aria-valuemin="0" aria-valuemax="100" style="width:50%">
+									  </div>
+									</div>
+									<p class="info-content">50% Increase in 28 Days</p>
+                				</div>	
+                			</div>
+                		</div>
+
+                		<div class="col-xl-8 col-lg-8 col-md-12 col-xs-12 second-section">
+					         <div class="line-chart-container box-info">
+						        <div class="box-header with-border ui-sortable-handle" style="cursor: move;">
+						          <h3 class="box-title">Products Yearly Sales</h3>
+
+						          <div class="box-tools pull-right">
+						            <a href=""><i class="glyphicon glyphicon-minus"></i></a>
+						            <a href=""><i class="glyphicon glyphicon-remove"></i></a>
+						          </div>
+						        </div>
+						        <div class="box-body">
+						          <div class="chart">
+						            <div id="chartContainer" style="height: 327px; width: 100%;"></div>
+						          </div>
+						        </div>
+						      </div>
+                		</div>
+                		<div class="col-xl-4 col-lg-4 col-md-12 col-xs-12 second-section">
+                			<div class="weather-container weather-bg text-center">
+					          <div class="weather-body">
+					            <div class="elem-pad-lg">
+					              <h3 class="fc-white"><span class="font-xl">City,</span> <span class="font-lg">Country</span></h1>
+					            </div>
+					            <p class="weather-body-day fc-white">
+					              <span class="fc-white">MONDAY</span> May 11, 2017
+					            </p>
+					            <div class="mb-30 weather-icon fc-white">
+					              <canvas class="elem-margin-right text-top" id="icon1" width="90" height="90"></canvas>
+					              <div class="inline-block mtp-20">
+					                <span class="font-lg">29°
+					                <span class="font-sm">C</span>
+					                </span>
+					                <p class="text-left">DAY RAIN</p>
+					              </div>
+					            </div>
+					              <div class="row no-space mtp-20 fc-white">
+					                <div class="col-md-2   elem-pad-0">
+					                  <div>
+					                  <div class="mb-10">TUE</div>
+					                  <i class="wi wi-day-sunny font-size-30 mb-10"></i>
+					                  <div>24°
+					                    <span class="font-size-12">C</span>
+					                  </div>
+					                  </div>
+					                </div>
+					                <div class="col-md-2  elem-pad-0">
+					                  <div>
+					                  <div class="mb-10">WED</div>
+					                  <i class="wi wi-day-cloudy font-size-30 mb-10"></i>
+					                  <div>21°
+					                    <span class="font-size-12">C</span>
+					                  </div>
+					                  </div>
+					                </div>
+					                <div class="col-md-2 elem-pad-0">
+					                  <div>
+					                  <div class="mb-10">THU</div>
+					                  <i class="wi wi-day-sunny font-size-30 mb-10"></i>
+					                  <div>25°
+					                    <span class="font-size-12">C</span>
+					                  </div>
+					                  </div>
+					                </div>
+					                <div class="col-md-2 elem-pad-0">
+					                  <div>
+					                  <div class="mb-10">FRI</div>
+					                  <i class="wi wi-day-cloudy-gusts font-size-30 mb-10"></i>
+					                  <div>20°
+					                    <span class="font-size-12">C</span>
+					                  </div>
+					                  </div>
+					                </div>
+					                <div class="col-md-2 elem-pad-0">
+					                  <div>
+					                  <div class="mb-10">SAT</div>
+					                  <i class="wi wi-day-lightning font-size-30 mb-10"></i>
+					                  <div>18°
+					                    <span class="font-size-12">C</span>
+					                  </div>
+					                  </div>
+					                </div>
+					                <div class="col-md-2 elem-pad-0">
+					                  <div>
+					                  <div class="mb-10">SUN</div>
+					                  <i class="wi wi-day-storm-showers font-size-30 mb-10"></i>
+					                  <div>14°
+					                    <span class="font-size-12">C</span>
+					                  </div>
+					                  </div>
+					                </div>
+					              </div>
+					          </div>
+					        </div>	
+                		</div>
+                	</div>
+                </div> 
+            </div>
+        </div>
+
+	     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+	     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+	     <script type="text/javascript" src="public/dashboard/javascripts/dashboardCtrl.js"></script>
+	     <script src="public/dashboard/javascripts/weather.js"></script>
+	     <script type="text/javascript">
+	         $(document).ready(function () {
+	             $('#sidebarCollapse').on('click', function () {
+	                 $('#sidebar').toggleClass('activeMenu');
+	             });
+	         });
+	         WeatherIcon.add('icon1' , WeatherIcon.SLEET , {stroke:false , shadow:false , animated:true } );
+			 WeatherIcon.add('icon2' , WeatherIcon.SNOW , {stroke:false , shadow:false , animated:true } );
+			 WeatherIcon.add('icon3' , WeatherIcon.LIGHTRAINTHUNDER , {stroke:false , shadow:false , animated:true } );
+	     </script>
+	</body>
+</html>

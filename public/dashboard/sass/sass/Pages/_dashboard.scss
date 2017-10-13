@@ -1,0 +1,403 @@
+.wrapper {
+    display: flex;
+    align-items: stretch;
+    overflow-x:hidden;
+    #content {
+        padding: 0;
+        min-height: 100vh;
+        transition: all 0.3s;
+        width: 100%;
+        .navbar {
+            padding: 0px;
+            border: none;
+            border-radius: 0;
+            margin-bottom: 0px;
+            background: $light-blue;
+            .navbar-header{
+                width:100%;
+                .navbar-btn {
+                    box-shadow: none;
+                    outline: none !important;
+                    border: none;
+                    margin: 0 0 0 -14px;
+                    @include borderRadius(0px);
+                    height: 56px;
+                    background: $light-blue;
+                    &:hover{
+                        background: $header-blue;
+                    }
+                }
+                ul{
+                    .notifications{
+                        display:inline-block;
+                        height: 56px;
+                        position:relative;
+                        &:hover{
+                            background: $header-blue;
+                        }
+                        a{
+                            margin-top: 6px;
+                            color: $white;
+                        }
+                        .my-account{
+                            width:32px;
+                            height:32px;
+                            @include borderRadius(50%);
+                            margin-top: -8px;
+                            vertical-align: middle;
+                        }
+                        .badge{
+                            position: absolute;
+                            top: 2px;
+                            right: -7px;
+                        }
+                        .active-notif{
+                            display: block !important;
+                            z-index: 999;
+                        }
+                        .hide-notif{
+                            display: block !important;
+                            z-index: 0;
+                        }
+                        .profile-holder{
+                            display: none;
+                            position: absolute;
+                            top:56px;
+                            right:0px;
+                            background: $white;
+                            width: 297px;
+                            border: solid 1px rgba(120, 130, 140, .13);
+                            @include borderRadius(0 0 5px 5px);
+                            .my-account-dp{
+                                width: 90px;
+                            }
+                            span{
+                                font-size: $font-xs;
+                                line-height: 28px;
+                            }
+                            a{
+                                color: $grey-link;
+                            }
+                            .ffs{
+                                li{
+                                    width: 32.44%;
+                                    padding: 0 10px 20px 14px;
+                                }
+                            }
+                            .profile-button{
+                                padding: 15px 10px 15px 10px;
+                                background: #F2F6F8;
+                                .butn{
+                                    width: 100px;
+                                    padding: 8px;
+                                    border:none;
+                                    color: $white;
+                                }
+                                .btn-left{
+                                    margin-right: 71px;
+                                    background: $light-blue;
+                                }
+                                .btn-right{
+                                    background: #FC4B6C;    
+                                }
+                            }
+                        }
+                        .notification-holder{
+                            display: none;
+                            position: absolute;
+                            top:56px;
+                            right:0px;
+                            background: $white;
+                            width: 270px;
+                            border: solid 1px rgba(120, 130, 140, .13);
+                            @include borderRadius(0 0 5px 5px);
+                            p{
+                                padding: 20px;
+                                font-size: $font-xs;
+                                color: rgba(0, 0, 0, .5)
+                            }
+                            .notif-wrapper{
+                                max-height: 185px;
+                                min-height: 185px;
+                                overflow-y: hidden;
+                                .email-notif-li{
+                                    line-height: 56px;
+                                }
+                                .notif-li{
+                                    line-height:36px;
+                                }
+                                .task-li{
+                                    height: 62px;
+                                    .progress{
+                                        height: 10px;
+                                        width: 90%;
+                                        margin: 0 auto;
+                                        border-radius:0;
+                                    }
+                                }
+                                li{
+                                    border-top: solid 1px rgba(120, 130, 140, .13);
+                                    a{
+                                        color: $grey;
+                                        text-overflow: ellipsis;
+                                        .notification-p{
+                                            line-height:16px;
+                                            font-size: $font-sm;
+                                            color: #333;
+                                            padding:13px 0 13px 12px;
+                                            white-space: nowrap;
+                                            text-overflow: ellipsis; 
+                                            overflow: hidden
+                                        }
+                                        .task-p{
+                                            line-height:16px;
+                                            font-size: $font-sm;
+                                            color: #333;
+                                            padding:13px 0 13px 12px;
+                                            small{
+                                                font-size:10px;
+                                                color: rgba(0,0,0, .5);
+                                                float: right;
+                                                margin-right: 14px;
+                                            }
+                                        }
+                                        .inbox{
+                                            height: 62px;
+                                            max-width: 260px;
+                                            text-overflow: ellipsis;
+                                            position: relative;
+                                            .rounded-circle{
+                                                position: absolute;
+                                                left: 10px;
+                                                top: 10px;
+                                                width: 40px;
+                                                height: 40px;
+                                                @include borderRadius(50%);
+                                            }    
+                                            h4{
+                                                position: absolute;
+                                                right: 10px;
+                                                top:-8px;
+                                                font-size: $font-sm;
+                                                color: $grey;
+                                                font-weight: 400;
+                                                small{
+                                                    margin-left: 55px;
+                                                }
+                                            }
+                                            .inbox-desc{
+                                                position: absolute;
+                                                top: 12px;
+                                                right: 10px;
+                                                max-width: 210px;
+                                                overflow: hidden;
+                                                font-size: $font-xs;
+                                                padding: 0;
+                                                color: $light-grey;
+                                            }
+                                        }
+                                        
+                                    }
+                                    &:hover{
+                                        background: #f4f4f4;     
+                                    }
+                                }
+                                &:hover{
+                                    overflow-y: scroll;
+                                }
+                                &::-webkit-scrollbar-track{
+                                    border-radius: 10px;
+                                    background-color: $white;
+                                }
+                                &::-webkit-scrollbar{
+                                    width: 8px;
+                                    background-color: $white;
+                                }
+                                &::-webkit-scrollbar-thumb{
+                                    border-radius: 10px;
+                                    background-color: #989898;
+                                }
+                            }
+                            .see-all-emails{
+                                color: rgba(0, 0, 0, .5);
+                                border-top: 1px solid rgba(0, 0, 0, .1);
+                                line-height: 59px;
+                                padding: 15px 80px 15px 75px;
+                            }
+                            .see-all-notif{
+                                color: rgba(0, 0, 0, .5);
+                                border-top: 1px solid rgba(0, 0, 0, .1);
+                                line-height: 59px;
+                                padding: 15px 104px 15px 104px;
+                            }
+                            .see-all-task{
+                                color: rgba(0, 0, 0, .5);
+                                border-top: 1px solid rgba(0, 0, 0, .1);
+                                line-height: 59px;
+                                padding: 15px 80px 15px 75px;
+                            }
+                        }
+                    }
+                }
+                .navbar-right {
+                  float: right!important;
+                }
+            }
+        }
+        .dashboard-content{
+            width: 98%;
+            margin:20px auto;
+            position: relative;
+            z-index: 99;
+            min-height: 100vh;
+            .page-title{
+                font-size:32px;
+                margin: 0px 0px 20px 20px;
+                small{
+                    font-size: $font-md;
+                    margin-left:20px;
+                }
+            }
+            .my-fav{
+                margin-bottom:20px;
+                @include borderRadius(0 5px 0 5px);
+                .my-fav-icon{
+                    float: left;
+                    height: 70px;
+                    width: 70px;
+                    text-align: center;
+                    font-size: 30px;
+                    line-height: 74px;
+                    background: rgba(0, 0, 0, .2);
+                    border-radius: 100%;
+                    margin: 36px 20px;
+                    i{
+                        margin-top: 19px;
+                        color:$white;   
+                    }
+                }
+                .my-fav-info{
+                    padding: 31px 10px 10px 0;
+                    margin-left: 90px;
+                    p{
+                        color: $white;
+                        line-height:26px;
+                    }
+                    .progress{
+                        height: 3px;
+                        margin: 5px auto;
+                        border-radius:0;
+                        background: #2D7BC0;
+                        .progress-bar-white{
+                            background: $white;
+                        }
+                    }
+                    .progress-bar-aqua{
+                        background: #1E9FAF !important;
+                    }
+                    .progress-bar-violet{
+                        background: #5D4DBF !important;
+                    }
+                    .progress-bar-red{
+                        background: #CA3C56 !important;
+                    }
+                    .info-content{
+                        font-size:$font-sm;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        font-weight: 400;
+                    }
+                }
+            }
+            .new-clients{
+                background: #389AF0;
+                height: 140px;
+            }   
+            .total-visits{
+                background: #26C6DA;
+                height: 140px;
+            }   
+            .downloads{
+                background: #7460EE;
+                height: 140px;
+            } 
+            .direct-chat{
+                background: #FC4B6C;
+                height: 140px;
+            }
+            .second-section{
+                margin-top:15px;
+                .line-chart-container{
+                    border:solid 1px #ccc;
+                    .box-tools{
+                        margin-top:-18px;
+                        a{
+                            color: #9DA5B7;
+                            font-size: $font-xs;
+                            margin-left: 10px;
+                            &:hover{
+                                opacity: .7;
+                            }
+                        }
+                    }
+                } 
+            }  
+        }
+    }
+}
+@include mediaQueries(mobile) {
+    .wrapper {
+        position:relative;
+        overflow:hidden;
+        #content {
+            .dashboard-content{
+                margin-top:140px;
+            }
+            .navbar {
+                position: absolute;
+                width: 100%;
+                top: 56px;
+                left: 0;
+                .navbar-header{
+                    .navbar-btn {
+                        margin: 0;
+                    }
+                    .navbar-nav{
+                        margin: 0 !important;
+                    }
+                    ul{
+                        .notifications{
+                            .notification-holder{
+                                right:-95px;
+                            }
+                        }
+                    }
+                } 
+            }
+            .dashboard-content{
+                .page-title{  
+                    small{
+                    }
+                }
+                .new-clients{
+                    background: #389AF0;
+                    height: 140px;
+                }   
+                .total-visits{
+                    background: #26C6DA;
+                    height: 140px;
+                }   
+                .downloads{
+                    background: #7460EE;
+                    height: 140px;
+                } 
+                .direct-chat{
+                    background: #FC4B6C;
+                    height: 140px;
+                }   
+            }
+        }
+    }    
+}
+

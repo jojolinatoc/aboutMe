@@ -1,0 +1,325 @@
+.sidebar-header-mobile{
+	display:none;
+}
+.activeMenu {
+    min-width: 50px !important;
+    max-width: 50px !important;
+    text-align: center;
+    .sidebar-header {
+    	.strong {
+    		display:block !important;
+    	}
+	    h3{
+	    	display:none;	
+	    }
+	}
+	.components{
+		.user-container{
+			padding: 5px !important;
+	    	.user-name{
+	    		display:none;
+	    	}
+	    	.add-on{
+	    		display:none;
+	    	}
+	    }
+	    .avatar{
+	    	width: 40px !important;
+    		height: 40px !important;
+	    }
+	    .main-nav{
+	    	display:none;
+	    }
+	    li{
+	    	a{
+			    text-align: center !important;
+			    .nav-icon{
+			    	margin-right:  0 !important;
+				    display: block !important;
+				    font-size: $font-lg !important;
+				    margin-bottom: 5px !important;	
+			    }
+			    .nav-label{
+			    	display:none;
+			    }
+			    .badge{
+			    	display:none;
+			    }		
+	    	}
+	    	&:hover{
+	    		width:250px !important;
+	    		position:relative;
+	    		a{
+				    text-align: left !important;
+				    padding: 10px !important;
+				    .nav-icon{
+				    	margin-right: 20px !important;
+					    display: inline-block !important;
+					    margin-bottom:0 !important;
+				    }
+				    .nav-label{
+				    	display: inline-block !important;
+				    }
+				    .badge{
+				    	display: inline-block !important;
+				    }		
+		    	} 
+		    	ul{
+		    		display:block;
+		    		margin-left:50px;
+		    		li{
+		    			width: 200px;
+		    		}
+		    	}
+		    	a[aria-expanded="false"]::before, a[aria-expanded="true"]::before{
+					display:block !important;
+				}
+	    	}
+	    }
+	    .hasSubmenu{
+	    	&:hover{
+	    		width:300px !important;
+		    	ul{
+		    		margin-left:50px;
+		    		li{
+		    			width: 250px;
+		    		}
+		    	}
+	    	}
+	    }	
+	}
+	a[aria-expanded="false"]::before, a[aria-expanded="true"]::before{
+		display:none !important;
+	}
+}
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background: $dark-grey;
+    color: #fff;
+    transition: all 0.3s;
+	.sidebar-header {
+	    padding: 20px;
+	    background: $header-blue;
+	    text-align:center;
+	    font-weight:bold;
+	    color: $white;
+	    .strong {
+	    	display: none;
+	    }
+	}
+	.components {
+	    padding: 20px 0;
+	    border-bottom: 1px solid #47748b;
+	    .user-container{
+	    	width:90%;
+	    	padding:0 0px 20px 10px;
+	    	.user-name{
+	    		line-height: 22px;
+	    		span{
+	    			font-size: $font-xs;
+	    		}
+	    		.glyphicon{
+	    			margin-right:10px;
+	    			color: $green;
+	    		}
+	    	}
+	    	.add-on{
+	    		#srch-term{
+	    			background: $dark-grey;
+	    			color: $light-grey;
+	    		}
+	    		button{
+	    			background: $dark-grey;
+	    			line-height:1.5;
+	    			i{
+	    				color: $light-grey;
+	    				line-height:1.43;
+	    			}
+	    		}
+	    	}
+	    }
+	    .main-nav{
+	    	border-top: solid 1pt $grey;
+	    	padding:10px;
+	    }
+	    .avatar{
+	    	width:40px;
+	    	height:40px;
+	    	border:solid 1pt #314F6E;
+	    	border-radius:2pt;
+	    	display:inline-block;
+	    	margin:0 10px 15px 0;
+	    }
+	    li {
+			line-height: 28px;
+			a{
+	    		padding: 10px;
+			    font-size: $font-md;
+			    display: block;
+			    &:hover {
+				    color: $white;
+				    background: $light-blue;
+				}
+			}
+			.glyphicon{ 
+				margin-right:20px;
+			}
+			ul{
+				li{
+					a{
+						&:hover{
+						color:$white;
+						background:$dark-grey;
+						}
+					}
+				}
+			}
+		}
+		.active a, a[aria-expanded="true"]{
+			color: $white;
+			background: $light-blue;
+		}
+	}
+	
+	ul{
+		a{
+			font-size: $font-md;
+		    background: $dark-grey;
+		    color: $light-grey;
+		}
+	}
+	a[data-toggle="collapse"] {
+	    position: relative;
+	}
+
+	a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
+	    content:"\e079";
+	    display: block;
+	    position: absolute;
+	    right: 20px;
+	    font-family: 'Glyphicons Halflings';
+	    font-size: 0.6em;
+	}
+	a[aria-expanded="true"]::before {
+	    content:"\e114";
+	}
+}
+.nav-icon{
+	display: inline-block;
+}
+
+@include mediaQueries(mobile) {
+	.sidebar-header-mobile{
+		display:block;
+		position: absolute;
+	    width: 100%;
+	    display:block;
+	    padding: 20px;
+	    background: $header-blue;
+	    text-align:center;
+	    font-weight:bold;
+	    color: $white;
+	}
+	#sidebar {
+    	display:none;
+    	.sidebar-header{
+			display:none;   
+    	}
+    	.components{
+    	   margin-top: 112px;
+    	}     
+    }
+    .activeMenu {
+    	display:block !important; 
+    	min-width: 250px !important;
+	    max-width: 250px !important;
+	    text-align: left;
+	    .sidebar-header {
+	    	.strong {
+	    		display:none !important;
+	    	}
+		    h3{
+		    	display:block;	
+		    }
+		}
+		.components{
+			.user-container{
+				padding: 5px !important;
+		    	.user-name{
+		    		display:block;
+		    	}
+		    	.add-on{
+		    		display:table;
+		    	}
+		    }
+		    .avatar{
+		    	width: 50px !important;
+	    		height: 50px !important;
+		    }
+		    .main-nav{
+		    	display:block;
+		    }
+		    li{
+		    	a{
+				    text-align: left !important;
+				    .nav-icon{
+				    	margin-right:  10px !important;
+					    display: inline-block !important;
+					    font-size: $font-md !important;
+					    margin-bottom: 5px !important;	
+				    }
+				    .nav-label{
+				    	display:inline-block;
+				    }
+				    .badge{
+				    	display:inline-block;
+				    }		
+		    	}
+		    	&:hover{
+		    		width:250px !important;
+		    		position:relative;
+		    		a{
+					    text-align: left !important;
+					    padding: 10px !important;
+					    .nav-icon{
+					    	margin-right: 20px !important;
+						    display: inline-block !important;
+						    margin-bottom:0 !important;
+					    }
+					    .nav-label{
+					    	display: inline-block !important;
+					    }
+					    .badge{
+					    	display: inline-block !important;
+					    }		
+			    	} 
+			    	ul{
+			    		display:block;
+			    		margin-left:0px;
+			    		li{
+			    			width: 250px;
+			    		}
+			    	}
+			    	a[aria-expanded="false"]::before, a[aria-expanded="true"]::before{
+						display:inline-block !important;
+					}
+		    	}
+		    }
+		    .hasSubmenu{
+		    	&:hover{
+		    		width:250px !important;
+			    	ul{
+			    		margin-left:0px;
+			    		li{
+			    			width: 250px;
+			    		}
+			    	}
+		    	}
+		    }	
+		}
+		a[aria-expanded="false"]::before, a[aria-expanded="true"]::before{
+			display:none !important;
+		}
+	}
+}
