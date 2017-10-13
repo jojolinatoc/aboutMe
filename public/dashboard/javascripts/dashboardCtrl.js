@@ -79,4 +79,24 @@ var chart = new CanvasJS.Chart("chartContainer", {
 });
 chart.render();
 
+var doughnutChart = new CanvasJS.Chart("doughnutContainer", {
+    animationEnabled: true,
+    title:{
+        horizontalAlign: "left"
+    },
+    data: [{
+        type: "doughnut",
+        startAngle: 60,
+        //innerRadius: 60,
+        dataPoints: [
+            { y: 67, label: "" },
+            { y: 28, label: "" },
+            { y: 10, label: "" },
+            { y: 7, label: ""},
+            { y: 15, label: ""},
+            { y: 6, label: ""}
+        ]
+    }]
+});
+doughnutChart.render();
 }

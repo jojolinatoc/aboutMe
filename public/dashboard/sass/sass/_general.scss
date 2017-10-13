@@ -170,6 +170,10 @@ a{
     display: block;
     padding: 10px;
     position: relative;
+    .box-heading{
+      font-size: 20px;
+      font-weight:400;
+    }
 }
 .box-header.with-border {
     border-bottom: 1px solid #f7f7f7;
@@ -188,5 +192,24 @@ a{
 }
 .weather-bg {
     background-color: #389af0;
-    height: 394px;
+    height: 401px;
+}
+
+.chart-bue{
+  color: #4F81BC;
+}
+.chart-red{
+  color: #C0504E;
+}
+.chart-green{
+  color: #9BBB58;
+}
+.chart-aqua{
+  color: #23BFAA;
+}
+.chart-violet{
+  color: #8064A1;
+}
+.chart-aqua2{
+  color: #4AACC5;
 }

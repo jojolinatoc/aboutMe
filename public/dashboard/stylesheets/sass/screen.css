@@ -322,34 +322,69 @@ a:focus {
   padding: 10px;
   position: relative;
 }
+/* line 173, ../../sass/sass/_general.scss */
+.box-header .box-heading {
+  font-size: 20px;
+  font-weight: 400;
+}
 
-/* line 174, ../../sass/sass/_general.scss */
+/* line 178, ../../sass/sass/_general.scss */
 .box-header.with-border {
   border-bottom: 1px solid #f7f7f7;
 }
 
-/* line 177, ../../sass/sass/_general.scss */
+/* line 181, ../../sass/sass/_general.scss */
 .box-body {
   padding: 10px;
   border-radius: 0 0 3px 3px;
 }
 
-/* line 181, ../../sass/sass/_general.scss */
+/* line 185, ../../sass/sass/_general.scss */
 .chart {
   position: relative;
   overflow: hidden;
   width: 100%;
 }
 
-/* line 186, ../../sass/sass/_general.scss */
+/* line 190, ../../sass/sass/_general.scss */
 .chart canvas, .chart svg {
   width: 100% !important;
 }
 
-/* line 189, ../../sass/sass/_general.scss */
+/* line 193, ../../sass/sass/_general.scss */
 .weather-bg {
   background-color: #389af0;
-  height: 394px;
+  height: 401px;
+}
+
+/* line 198, ../../sass/sass/_general.scss */
+.chart-bue {
+  color: #4F81BC;
+}
+
+/* line 201, ../../sass/sass/_general.scss */
+.chart-red {
+  color: #C0504E;
+}
+
+/* line 204, ../../sass/sass/_general.scss */
+.chart-green {
+  color: #9BBB58;
+}
+
+/* line 207, ../../sass/sass/_general.scss */
+.chart-aqua {
+  color: #23BFAA;
+}
+
+/* line 210, ../../sass/sass/_general.scss */
+.chart-violet {
+  color: #8064A1;
+}
+
+/* line 213, ../../sass/sass/_general.scss */
+.chart-aqua2 {
+  color: #4AACC5;
 }
 
 /* line 1, ../../sass/sass/Pages/_dashboard.scss */
@@ -762,118 +797,159 @@ a:focus {
 }
 /* line 331, ../../sass/sass/Pages/_dashboard.scss */
 .wrapper #content .dashboard-content .second-section .line-chart-container {
+  -webkit-box-shadow: 0px 0px 8px 0px rgba(173, 173, 173, 0.61);
+  -moz-box-shadow: 0px 0px 8px 0px rgba(173, 173, 173, 0.61);
+  box-shadow: 0px 0px 8px 0px rgba(173, 173, 173, 0.61);
   border: solid 1px #ccc;
 }
-/* line 333, ../../sass/sass/Pages/_dashboard.scss */
+/* line 336, ../../sass/sass/Pages/_dashboard.scss */
 .wrapper #content .dashboard-content .second-section .line-chart-container .box-tools {
   margin-top: -18px;
 }
-/* line 335, ../../sass/sass/Pages/_dashboard.scss */
+/* line 338, ../../sass/sass/Pages/_dashboard.scss */
 .wrapper #content .dashboard-content .second-section .line-chart-container .box-tools a {
   color: #9DA5B7;
   font-size: 12px;
   margin-left: 10px;
 }
-/* line 339, ../../sass/sass/Pages/_dashboard.scss */
+/* line 342, ../../sass/sass/Pages/_dashboard.scss */
 .wrapper #content .dashboard-content .second-section .line-chart-container .box-tools a:hover {
   opacity: .7;
 }
+/* line 349, ../../sass/sass/Pages/_dashboard.scss */
+.wrapper #content .dashboard-content .third-section {
+  margin-top: 20px;
+}
+/* line 351, ../../sass/sass/Pages/_dashboard.scss */
+.wrapper #content .dashboard-content .third-section .browser-usage {
+  -webkit-box-shadow: 0px 0px 8px 0px rgba(173, 173, 173, 0.61);
+  -moz-box-shadow: 0px 0px 8px 0px rgba(173, 173, 173, 0.61);
+  box-shadow: 0px 0px 8px 0px rgba(173, 173, 173, 0.61);
+  border: solid 1px #ccc;
+}
+/* line 356, ../../sass/sass/Pages/_dashboard.scss */
+.wrapper #content .dashboard-content .third-section .browser-usage .box-tools {
+  margin-top: -18px;
+}
+/* line 358, ../../sass/sass/Pages/_dashboard.scss */
+.wrapper #content .dashboard-content .third-section .browser-usage .box-tools a {
+  color: #9DA5B7;
+  font-size: 12px;
+  margin-left: 10px;
+}
+/* line 362, ../../sass/sass/Pages/_dashboard.scss */
+.wrapper #content .dashboard-content .third-section .browser-usage .box-tools a:hover {
+  opacity: .7;
+}
+/* line 367, ../../sass/sass/Pages/_dashboard.scss */
+.wrapper #content .dashboard-content .third-section .browser-usage .graph-label {
+  padding: 20px;
+}
+/* line 370, ../../sass/sass/Pages/_dashboard.scss */
+.wrapper #content .dashboard-content .third-section .browser-usage .graph-label .browser-labels li {
+  line-height: 24px;
+}
+/* line 375, ../../sass/sass/Pages/_dashboard.scss */
+.wrapper #content .dashboard-content .third-section .browser-usage .doughnut-bottom {
+  padding: 15px 2px 15px 2px;
+  border-top: solid 1px #ccc;
+}
 
 @media screen and (max-width: 768px) {
-  /* line 350, ../../sass/sass/Pages/_dashboard.scss */
+  /* line 385, ../../sass/sass/Pages/_dashboard.scss */
   .wrapper {
     position: relative;
     overflow: hidden;
   }
-  /* line 354, ../../sass/sass/Pages/_dashboard.scss */
+  /* line 389, ../../sass/sass/Pages/_dashboard.scss */
   .wrapper #content .dashboard-content {
     margin-top: 140px;
   }
-  /* line 357, ../../sass/sass/Pages/_dashboard.scss */
+  /* line 392, ../../sass/sass/Pages/_dashboard.scss */
   .wrapper #content .navbar {
     position: absolute;
     width: 100%;
     top: 56px;
     left: 0;
   }
-  /* line 363, ../../sass/sass/Pages/_dashboard.scss */
+  /* line 398, ../../sass/sass/Pages/_dashboard.scss */
   .wrapper #content .navbar .navbar-header .navbar-btn {
     margin: 0;
   }
-  /* line 366, ../../sass/sass/Pages/_dashboard.scss */
+  /* line 401, ../../sass/sass/Pages/_dashboard.scss */
   .wrapper #content .navbar .navbar-header .navbar-nav {
     margin: 0 !important;
   }
-  /* line 371, ../../sass/sass/Pages/_dashboard.scss */
+  /* line 406, ../../sass/sass/Pages/_dashboard.scss */
   .wrapper #content .navbar .navbar-header ul .notifications .notification-holder {
     right: -95px;
   }
-  /* line 383, ../../sass/sass/Pages/_dashboard.scss */
+  /* line 418, ../../sass/sass/Pages/_dashboard.scss */
   .wrapper #content .dashboard-content .new-clients {
     background: #389AF0;
     height: 140px;
   }
-  /* line 387, ../../sass/sass/Pages/_dashboard.scss */
+  /* line 422, ../../sass/sass/Pages/_dashboard.scss */
   .wrapper #content .dashboard-content .total-visits {
     background: #26C6DA;
     height: 140px;
   }
-  /* line 391, ../../sass/sass/Pages/_dashboard.scss */
+  /* line 426, ../../sass/sass/Pages/_dashboard.scss */
   .wrapper #content .dashboard-content .downloads {
     background: #7460EE;
     height: 140px;
   }
-  /* line 395, ../../sass/sass/Pages/_dashboard.scss */
+  /* line 430, ../../sass/sass/Pages/_dashboard.scss */
   .wrapper #content .dashboard-content .direct-chat {
     background: #FC4B6C;
     height: 140px;
   }
 }
 @media screen and (max-device-width: 768px) {
-  /* line 350, ../../sass/sass/Pages/_dashboard.scss */
+  /* line 385, ../../sass/sass/Pages/_dashboard.scss */
   .wrapper {
     position: relative;
     overflow: hidden;
   }
-  /* line 354, ../../sass/sass/Pages/_dashboard.scss */
+  /* line 389, ../../sass/sass/Pages/_dashboard.scss */
   .wrapper #content .dashboard-content {
     margin-top: 140px;
   }
-  /* line 357, ../../sass/sass/Pages/_dashboard.scss */
+  /* line 392, ../../sass/sass/Pages/_dashboard.scss */
   .wrapper #content .navbar {
     position: absolute;
     width: 100%;
     top: 56px;
     left: 0;
   }
-  /* line 363, ../../sass/sass/Pages/_dashboard.scss */
+  /* line 398, ../../sass/sass/Pages/_dashboard.scss */
   .wrapper #content .navbar .navbar-header .navbar-btn {
     margin: 0;
   }
-  /* line 366, ../../sass/sass/Pages/_dashboard.scss */
+  /* line 401, ../../sass/sass/Pages/_dashboard.scss */
   .wrapper #content .navbar .navbar-header .navbar-nav {
     margin: 0 !important;
   }
-  /* line 371, ../../sass/sass/Pages/_dashboard.scss */
+  /* line 406, ../../sass/sass/Pages/_dashboard.scss */
   .wrapper #content .navbar .navbar-header ul .notifications .notification-holder {
     right: -95px;
   }
-  /* line 383, ../../sass/sass/Pages/_dashboard.scss */
+  /* line 418, ../../sass/sass/Pages/_dashboard.scss */
   .wrapper #content .dashboard-content .new-clients {
     background: #389AF0;
     height: 140px;
   }
-  /* line 387, ../../sass/sass/Pages/_dashboard.scss */
+  /* line 422, ../../sass/sass/Pages/_dashboard.scss */
   .wrapper #content .dashboard-content .total-visits {
     background: #26C6DA;
     height: 140px;
   }
-  /* line 391, ../../sass/sass/Pages/_dashboard.scss */
+  /* line 426, ../../sass/sass/Pages/_dashboard.scss */
   .wrapper #content .dashboard-content .downloads {
     background: #7460EE;
     height: 140px;
   }
-  /* line 395, ../../sass/sass/Pages/_dashboard.scss */
+  /* line 430, ../../sass/sass/Pages/_dashboard.scss */
   .wrapper #content .dashboard-content .direct-chat {
     background: #FC4B6C;
     height: 140px;
