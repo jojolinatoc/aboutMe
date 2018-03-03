@@ -34,6 +34,16 @@
     <![endif]-->
 
     <script>
+        $(document).ready(function () {
+            var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+            if (window.location.hash && isChrome) {
+                setTimeout(function () {
+                    var hash = window.location.hash;
+                    window.location.hash = "";
+                    window.location.hash = hash;
+                }, 300);
+            }
+        });
         $(window).on('load',function() {
             $(".preloader").fadeOut("slow", function(){
                 $(".preloader-left").addClass("slide-left");
@@ -44,7 +54,7 @@
         website.controller('headerCtrl', function($scope) {
             $scope.navLinks = [
                 {
-                    url: "#home",
+                    url: "#headerwrap",
                     navName: "Home"
                 },{
                     url: "#about",
@@ -208,7 +218,7 @@
                 <a class="navbar-brand animated rotateIn" href="#home"><img src="public/images/jlogo.png" class="jlogo"></a> </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li ng-repeat="nav in navLinks" class="animated bounceInDown"><a href="{{nav.url}}" class="smoothScroll">{{nav.navName}}</a></li>
+                    <li ng-repeat="nav in navLinks" class="animated bounceInDown"><a href="{{nav.url}}" date-scroll>{{nav.navName}}</a></li>
                 </ul>
             </div>
         </div>
@@ -219,7 +229,7 @@
     <header class="clearfix">
         <h1 class="homeh1 animated rotateIn">Jojo Linatoc</h1>
         <p class="homep animated slideInDown">Front-end Web Developer</p>
-        <a href="#portfolio" class="smoothScroll btn btn-lg animated slideInDown">See my works</a> </header>
+        <a href="#portfolio" date-scroll class=" btn btn-lg animated slideInDown">See my works</a> </header>
 </div>
 
 <div id="about" name="about">
@@ -272,40 +282,41 @@
 </div>
 
 <div id="portfolio" name="portfolio" ng-controller="portfolioCtrl">
-<div class="container">
-    <div class="row">
-        <h2 class="centered hideme">My Portfolio</h2>
-        <hr>
-        <div class="col-lg-8 col-lg-offset-2 centered">
-            <p class="large hideme">Some of my works are not yet uploaded.</p>
-        </div>
-    </div>
     <div class="container">
         <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" ng-repeat="item in portfolio">
-                <div class="grid mask hideme">
-                    <figure> <img class="img-responsive" src="{{item.image}}" alt="">
-                        <figcaption>
-                            <h5>{{item.caption}}</h5>
-                            <a data-toggle="modal" href="{{item.link}}" class="btn btn-default">More Details</a> </figcaption>
-                    </figure>
-                </div>
+            <h2 class="centered hideme">My Portfolio</h2>
+            <hr>
+            <div class="col-lg-8 col-lg-offset-2 centered">
+                <p class="large hideme">Some of my works are not yet uploaded.</p>
             </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" ng-repeat="item in portfolio">
+                    <div class="grid mask hideme">
+                        <figure> <img class="img-responsive" src="{{item.image}}" alt="">
+                            <figcaption>
+                                <h5>{{item.caption}}</h5>
+                                <a data-toggle="modal" href="{{item.link}}" class="btn btn-default">More Details</a> </figcaption>
+                        </figure>
+                    </div>
+                </div>
 
-            <div class="modal fade" ng-repeat="mod in modals" id="{{mod.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title">{{mod.title}}</h4>
-                        </div>
-                        <div class="modal-body">
-                            <p><img class="img-responsive" ng-src="{{mod.thumbnail}}" alt=""></p>
-                            <p>{{mod.content}}</p>
-                            <p><b><a target="_blank" ng-href="{{mod.link}}">Visit Site</a></b></p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <div class="modal fade" ng-repeat="mod in modals" id="{{mod.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title">{{mod.title}}</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p><img class="img-responsive" ng-src="{{mod.thumbnail}}" alt=""></p>
+                                <p>{{mod.content}}</p>
+                                <p><b><a target="_blank" ng-href="{{mod.link}}">Visit Site</a></b></p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -414,6 +425,9 @@
 <script type="text/javascript" src="public/assets/js/jquery.easing.1.3.js"></script>
 <script type="text/javascript" src="public/assets/js/smoothscroll.js"></script>
 <script type="text/javascript" src="public/assets/js/jquery-func.js"></script>
+<script>
+    smoothScroll.init();
+</script>
 </body>
 </html>
 
