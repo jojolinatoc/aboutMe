@@ -34,6 +34,12 @@
     <![endif]-->
 
     <script>
+        $(window).on('load',function() {
+            $(".preloader").fadeOut("slow", function(){
+                $(".preloader-left").addClass("slide-left");
+                $(".preloader-right").addClass("slide-right");
+            });
+        });
         var website = angular.module('website', []);
         website.controller('headerCtrl', function($scope) {
             $scope.navLinks = [
@@ -184,6 +190,16 @@
 </head>
 
 <body data-spy="scroll" data-offset="0" data-target="#navbar-main" ng-app="website">
+
+<div class="preloader">
+    <div class="spinner">
+        <img src="public/images/status.gif">
+        <p class="text-center">Loading...</p>
+    </div>
+</div>
+<div class="preloader-left"></div>
+<div class="preloader-right"></div>
+
 <div id="navbar-main" ng-controller="headerCtrl">
     <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
