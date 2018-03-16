@@ -33,10 +33,15 @@
     <script type="text/javascript" src="public/assets/js/respond.min.js"></script>
     <![endif]-->
 
+    <style type="text/css">
+        table p{
+            margin: 0 !important;
+        }
+    </style>
     <script>
         $(document).ready(function () {
             // Select all links with hashes
-            $('a[href*="#"]')
+            $('.scrollTo')
             // Remove links that don't actually link to anything
                 .not('[href="#"]')
                 .not('[href="#0"]')
@@ -169,6 +174,25 @@
                     link: "http://us.xyzprinting.com/"
                 }
             ];
+
+            $scope.edm = [
+                {
+                    id: 5,
+                    image: "public/images/edm1.PNG",
+                    caption: "HiMirror EDM",
+                    link: "#edm1"
+                },{
+                    id: 4,
+                    image: "public/images/edm2.PNG",
+                    caption: "HiMirror EDM Japan region",
+                    link: "#edm2"
+                },{
+                    id: 3,
+                    image: "public/images/edm3.PNG",
+                    caption: "XYZPrinting EDM",
+                    link: "#edm3"
+                },
+            ];
         });
 
         website.controller('skillCtrl', function($scope) {
@@ -243,10 +267,10 @@
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-                <a class="navbar-brand animated rotateIn" href="#home"><img src="public/images/jlogo.png" class="jlogo"></a> </div>
+                <a class="navbar-brand animated rotateIn" href="#home" class="scrollTo"><img src="public/images/jlogo.png" class="jlogo"></a> </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li ng-repeat="nav in navLinks" class="animated bounceInDown"><a href="{{nav.url}}" date-scroll>{{nav.navName}}</a></li>
+                    <li ng-repeat="nav in navLinks" class="animated bounceInDown"><a href="{{nav.url}}" date-scroll class="scrollTo">{{nav.navName}}</a></li>
                 </ul>
             </div>
         </div>
@@ -257,7 +281,7 @@
     <header class="clearfix">
         <h1 class="homeh1 animated rotateIn">Jojo Linatoc</h1>
         <p class="homep animated slideInDown">Front-end Web Developer</p>
-        <a href="#portfolio" date-scroll class=" btn btn-lg animated slideInDown">See my works</a> </header>
+        <a href="#portfolio" date-scroll class=" btn btn-lg animated slideInDown scrollTo">See my works</a> </header>
 </div>
 
 <div id="about" name="about">
@@ -319,31 +343,805 @@
             </div>
         </div>
         <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" ng-repeat="item in portfolio">
-                    <div class="grid mask hideme">
-                        <figure> <img class="img-responsive" src="{{item.image}}" alt="">
-                            <figcaption>
-                                <h5>{{item.caption}}</h5>
-                                <a data-toggle="modal" href="{{item.link}}" class="btn btn-default">More Details</a> </figcaption>
-                        </figure>
+            <ul class="nav nav-pills" style="margin-bottom: 30px;">
+                <li class="active"><a href="#websites" data-toggle="tab" style="font-weight: bold">Websites</a></li>
+                <li><a href="#edm" data-toggle="tab" style="font-weight: bold">Email Designs</a></li>
+            </ul>
+            <div class="tab-content">
+                <div id="websites" class="tab-pane fade in active">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" ng-repeat="item in portfolio">
+                            <div class="grid mask hideme">
+                                <figure> <img class="img-responsive" src="{{item.image}}" alt="">
+                                    <figcaption>
+                                        <h5>{{item.caption}}</h5>
+                                        <a data-toggle="modal" href="{{item.link}}" class="btn btn-default">More Details</a> </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" ng-repeat="mod in modals" id="{{mod.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        <h4 class="modal-title">{{mod.title}}</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p><img class="img-responsive" ng-src="{{mod.thumbnail}}" alt=""></p>
+                                        <p>{{mod.content}}</p>
+                                        <p><b><a target="_blank" ng-href="{{mod.link}}">Visit Site</a></b></p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="modal fade" ng-repeat="mod in modals" id="{{mod.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                <h4 class="modal-title">{{mod.title}}</h4>
+                <div id="edm" class="tab-pane fade ">
+                    <p>I have created a lot of Email Designs, below are just sample templates that I've created.</p>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" ng-repeat="item in edm">
+                            <div class="grid mask hideme">
+                                <figure> <img class="img-responsive" src="{{item.image}}" alt="">
+                                    <figcaption>
+                                        <h5>{{item.caption}}</h5>
+                                        <a data-toggle="modal" href="{{item.link}}" class="btn btn-default">More Details</a> </figcaption>
+                                </figure>
                             </div>
-                            <div class="modal-body">
-                                <p><img class="img-responsive" ng-src="{{mod.thumbnail}}" alt=""></p>
-                                <p>{{mod.content}}</p>
-                                <p><b><a target="_blank" ng-href="{{mod.link}}">Visit Site</a></b></p>
+                        </div>
+
+                        <div class="modal fade" id="edm1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+                            <div class="modal-dialog" style="width: 646px !important;">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        <h4 class="modal-title">INTRODUCING HIMIRROR MINI, 2018 CES’s BEST OF INNOVATION AWARD HONOREE</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div align="center">
+                                            <table class="m_627685752147103864MsoNormalTable" border="0" cellspacing="0" cellpadding="0" width="600" style="width:6.25in;max-width:600px">
+                                                <tbody>
+                                                <tr>
+                                                    <td style="padding:0in 0in 0in 0in">
+                                                        <div align="center">
+                                                            <table class="m_627685752147103864MsoNormalTable" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100.0%">
+                                                                <tbody>
+                                                                <tr>
+                                                                    <td style="background:#d7006d;padding:0in 0in 0in 0in">
+                                                                        <p class="MsoNormal"><span style="font-family:&quot;Helvetica&quot;,&quot;sans-serif&quot;"><a href="http://bitly.com/2CKFAr5" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://bitly.com/2CKFAr5&amp;source=gmail&amp;ust=1521249755649000&amp;usg=AFQjCNGUXsdvTHaHcVGJPBNEMdkfoKKd3g"><img border="0" width="601" id="m_627685752147103864_x0000_i1027" src="https://ci4.googleusercontent.com/proxy/lKD0AiduUGQrjPBNeYYEkYdDO-TrmCpSgckQshEw2CU7yCrivxauzIHooT4bhSKj7Y4bJsvRzexwSJhuTz8_MHCgWwDXTANuuSh5YsXUiCL5jzl9MtDL_MJUt9xWLHvtruj34bJQnQs=s0-d-e1-ft#https://xyzwebsite.blob.core.windows.net/wwwportal/himirror_edm_20180110CES_p1.png" alt="HiMirrorLogo" class="CToWUd"></a><u></u><u></u></span></p>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="padding:0in 0in 0in 0in">
+                                                                        <p class="MsoNormal" align="center" style="text-align:center"><span style="font-family:&quot;Helvetica&quot;,&quot;sans-serif&quot;"><img border="0" width="601" id="m_627685752147103864_x0000_i1028" src="https://ci4.googleusercontent.com/proxy/rvEcsGzt4DzqqFQlUyij05VgJ051025a-oissfg4yZRRR_bvAw9InkvxuD0_RplkHfFklJAjzOodlAvlLW4Vm-4drO_d83XW8xAkIctoR_oLfUIwJNjvIk1jYcLap_eCnzP6RAP67kk=s0-d-e1-ft#https://xyzwebsite.blob.core.windows.net/wwwportal/himirror_edm_20180110CES_p2.png" alt="HiMirrorMainBanner" class="CToWUd a6T" tabindex="0"><div class="a6S" dir="ltr" style="opacity: 0.01; left: 1059.5px; top: 1200px;"><div id=":1za" class="T-I J-J5-Ji aQv T-I-ax7 L3 a5q" role="button" tabindex="0" aria-label="Download attachment " data-tooltip-class="a1V" data-tooltip="Download"><div class="aSK J-J5-Ji aYr"></div></div></div><u></u><u></u></span></p>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="padding:0in 0in 0in 0in">
+                                                                        <p class="MsoNormal" align="center" style="text-align:center"><span style="font-family:&quot;Helvetica&quot;,&quot;sans-serif&quot;"><a href="http://bitly.com/2CMay20" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://bitly.com/2CMay20&amp;source=gmail&amp;ust=1521249755649000&amp;usg=AFQjCNEPO9XVD_I7IWLoZNaD1pJSYGvWTg"><img border="0" width="601" id="m_627685752147103864_x0000_i1029" src="https://ci6.googleusercontent.com/proxy/K-k8Ek4q-jTQFUnt44sC5hPaBfQeGtaDXWxmHMQZMBDi_IXRUX_pxwU5M2S-XPtcheWhv5H6UcpOkwydS0_7HBlt19yAFzYsfFaupB-WpZXpwUGg2DDh7xt40m782DnBPlCU9-7Nrcg=s0-d-e1-ft#https://xyzwebsite.blob.core.windows.net/wwwportal/himirror_edm_20180110CES_p3.png" alt="HiMirrorMainBannerButton" class="CToWUd"></a><u></u><u></u></span></p>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="padding:0in 0in 0in 0in">
+                                                                        <p class="MsoNormal" align="center" style="text-align:center"><span style="font-family:&quot;Helvetica&quot;,&quot;sans-serif&quot;"><img border="0" width="601" id="m_627685752147103864_x0000_i1030" src="https://ci3.googleusercontent.com/proxy/UFz3kVAXwwCypbJ21wPZr5ZRhph_sUqcDoD92Ml6WqE8HTz5DznQoz8aezxhs_mtNqmGfwmI3afh_ZhcE6QpoDQ9eULxty2cQIcctb-PAxzoMUkbMlNrTFtjf6LPg_IoEqbhAXdaR-M=s0-d-e1-ft#https://xyzwebsite.blob.core.windows.net/wwwportal/himirror_edm_20180110CES_p4.png" alt="HiMirrorSecondaryBanner" class="CToWUd a6T" tabindex="0"><div class="a6S" dir="ltr" style="opacity: 0.01; left: 1059.5px; top: 2244px;"><div id=":1zb" class="T-I J-J5-Ji aQv T-I-ax7 L3 a5q" title="Download" role="button" tabindex="0" aria-label="Download attachment " data-tooltip-class="a1V"><div class="aSK J-J5-Ji aYr"></div></div></div><u></u><u></u></span></p>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="background:white;padding:11.25pt 11.25pt 11.25pt 11.25pt">
+                                                                        <div align="center">
+                                                                            <table class="m_627685752147103864MsoNormalTable" border="0" cellspacing="0" cellpadding="0" width="300" style="width:225.0pt;max-width:300px">
+                                                                                <tbody>
+                                                                                <tr>
+                                                                                    <td style="padding:0in 0in 0in 0in">
+                                                                                        <div align="center">
+                                                                                            <table class="m_627685752147103864MsoNormalTable" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100.0%">
+                                                                                                <tbody>
+                                                                                                <tr>
+                                                                                                    <td style="padding:0in 0in 0in 0in">
+                                                                                                        <p align="center" style="text-align:center"><span style="font-size:13.5pt;font-family:&quot;Helvetica&quot;,&quot;sans-serif&quot;;color:#d7006d">Let HiMirror Plus+ amaze you and turn intelligent beauty to reality.<u></u><u></u></span></p>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="padding:0in 0in 0in 0in">
+                                                                        <p class="MsoNormal" align="center" style="text-align:center"><span style="font-family:&quot;Helvetica&quot;,&quot;sans-serif&quot;"><a href="http://bitly.com/2CL0d6C" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://bitly.com/2CL0d6C&amp;source=gmail&amp;ust=1521249755649000&amp;usg=AFQjCNHMbnardNpeRYkz-RzAdRZH058WVw"><img border="0" width="601" id="m_627685752147103864_x0000_i1031" src="https://ci3.googleusercontent.com/proxy/gD9IA4uQWPikjWj9Bmok_mWKfik25NP89JtL-Pd1_wXweOEsYa7V89cVxamgop-W_lp6saO-CimMi0tn8MgOrc9V93kdpCfxIPZW9WqAA_d8cfmxhLdE-A_LvxS2CGJKwf-6TcuF9fw=s0-d-e1-ft#https://xyzwebsite.blob.core.windows.net/wwwportal/himirror_edm_20180110CES_p5.png" alt="HiMirrorSecondaryBannerButton" class="CToWUd"></a><u></u><u></u></span></p>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="background:white;padding:11.25pt 11.25pt 11.25pt 11.25pt">
+                                                                        <div align="center">
+                                                                            <table class="m_627685752147103864MsoNormalTable" border="0" cellspacing="0" cellpadding="0" width="480" style="width:5.0in;max-width:480px">
+                                                                                <tbody>
+                                                                                <tr>
+                                                                                    <td style="padding:0in 0in 0in 0in">
+                                                                                        <div align="center">
+                                                                                            <table class="m_627685752147103864MsoNormalTable" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100.0%">
+                                                                                                <tbody>
+                                                                                                <tr>
+                                                                                                    <td style="padding:0in 0in 0in 0in">
+                                                                                                        <p class="MsoNormal" align="center" style="text-align:center"><a href="http://bitly.com/2CMmgcZ" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://bitly.com/2CMmgcZ&amp;source=gmail&amp;ust=1521249755649000&amp;usg=AFQjCNEQUeWLK1fcB7W4eM78PwbePUJF6Q"><img border="0" id="m_627685752147103864_x0000_i1032" src="https://ci6.googleusercontent.com/proxy/pTVgQ8ueXNUTxcpEf2RuaWzZFk5OSqSVXo71ySBKZD2GcU0oI3bt1jhHqOalmBYR5S4Hz5VcRE6dSzBagnVQAQudkIUYB7ub4uNka6EDSdcz6JseYW1miybUvhKjtaMtwYOitaHZsuG5MqHDU7c=s0-d-e1-ft#https://xyzwebsite.blob.core.windows.net/wwwportal/himirror_edm_20171228OTA12-sns-fb.png" alt="Facebook" class="CToWUd"></a><u></u><u></u></p>
+                                                                                                    </td>
+                                                                                                    <td style="padding:0in 0in 0in 0in">
+                                                                                                        <p class="MsoNormal" align="center" style="text-align:center"><a href="http://bitly.com/2COzbeg" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://bitly.com/2COzbeg&amp;source=gmail&amp;ust=1521249755649000&amp;usg=AFQjCNHNLnFUoWBuK3rlaUkiUHbzkxG-mA"><img border="0" id="m_627685752147103864_x0000_i1033" src="https://ci4.googleusercontent.com/proxy/mbMDc5BEa7WGZfZRJIqG8bNMXe2RFlGBEBqortzkDcQ4EGUarspoisxpfq-g-jueZdY7U9Xhn5fvlxLbcBrJI3uHaIXVryBUi88eaOz5Tn39F3qeOMkLF49_HjSPM2le9pOEkpOIHxJSenJD-jc=s0-d-e1-ft#https://xyzwebsite.blob.core.windows.net/wwwportal/himirror_edm_20171228OTA12-sns-yt.png" alt="Youtube" class="CToWUd"></a><u></u><u></u></p>
+                                                                                                    </td>
+                                                                                                    <td style="padding:0in 0in 0in 0in">
+                                                                                                        <p class="MsoNormal" align="center" style="text-align:center"><a href="http://bitly.com/2CKZGRT" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://bitly.com/2CKZGRT&amp;source=gmail&amp;ust=1521249755649000&amp;usg=AFQjCNEUNYb0cmonrE_ez9Zw4nhufP7mvQ"><img border="0" id="m_627685752147103864_x0000_i1034" src="https://ci5.googleusercontent.com/proxy/UZqhUc3TtEeYGTLgcMgrkBc6Sl7e7qmpb7KSbwxEhV1FlBHpo534QzoHgLCUCktkctMDcaaD7KfppoOh0KnyswqXIj52y3VjD_NXyPVk3oNxXdQ8_vVNdhWfUl1tTcANTe1QpNuV1hDbG36pLaA=s0-d-e1-ft#https://xyzwebsite.blob.core.windows.net/wwwportal/himirror_edm_20171228OTA12-sns-ig.png" alt="Instagram" class="CToWUd"></a><u></u><u></u></p>
+                                                                                                    </td>
+                                                                                                    <td style="padding:0in 0in 0in 0in">
+                                                                                                        <p class="MsoNormal" align="center" style="text-align:center"><a href="http://bitly.com/2CKvxSN" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://bitly.com/2CKvxSN&amp;source=gmail&amp;ust=1521249755649000&amp;usg=AFQjCNG5dcccPOFyarMeDUPu0H1OGsemtw"><img border="0" id="m_627685752147103864_x0000_i1035" src="https://ci5.googleusercontent.com/proxy/ezmQxaO3nzGY_r3zl3EaFx8UOflN304gcZJMEg_lPWPhiBcNQaYOLr7OGSROtnLnREuRPGRazLrWrLuKlkiyq1Tlk8DLsr0clAziB0tZVs4VovqdlU_9lxOhJ3QLp3-ym3A5BiPBJWhmL-sbkwg=s0-d-e1-ft#https://xyzwebsite.blob.core.windows.net/wwwportal/himirror_edm_20171228OTA12-sns-pt.png" alt="Pinterest" class="CToWUd"></a><u></u><u></u></p>
+                                                                                                    </td>
+                                                                                                    <td style="padding:0in 0in 0in 0in">
+                                                                                                        <p class="MsoNormal" align="center" style="text-align:center"><a href="http://bitly.com/2CMRReH" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://bitly.com/2CMRReH&amp;source=gmail&amp;ust=1521249755649000&amp;usg=AFQjCNFflOtP4gIWOFBNE0vTgz7w5Z6dhA"><img border="0" id="m_627685752147103864_x0000_i1036" src="https://ci4.googleusercontent.com/proxy/2Do5Msm6eYKT1-Kj0UFewrpodCL7KZsi-8VlXYsAEEihP_Xv5n1M5oAofi09Y921L8Yrhz-VCAZ6yTv5MfOUl_0pED9KpHSy4fCjdkhArl4NPC7so6_l9xIORLoLrY-G4cHGBIM45Civwdo1WwE=s0-d-e1-ft#https://xyzwebsite.blob.core.windows.net/wwwportal/himirror_edm_20171228OTA12-sns-tw.png" alt="twitter" class="CToWUd"></a><u></u><u></u></p>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="background:white;padding:7.5pt 3.75pt 7.5pt 3.75pt">
+                                                                        <p align="center" style="text-align:center;line-height:8.25pt">
+<span style="font-size:8.5pt;font-family:&quot;Helvetica&quot;,&quot;sans-serif&quot;;color:#666666">This email was sent to you by HiMirror. To unsubscribe from future mailings,
+<a href="https://www.himirror.com/member/us_en/changeProfile" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=https://www.himirror.com/member/us_en/changeProfile&amp;source=gmail&amp;ust=1521249755649000&amp;usg=AFQjCNH73VXtMl6lVYenSogkivJBbrAkhw"><span style="color:#f16488">click here</span></a>.<u></u><u></u></span></p>
+                                                                        <p align="center" style="text-align:center;line-height:8.25pt">
+                                                                            <span style="font-size:8.5pt;font-family:&quot;Helvetica&quot;,&quot;sans-serif&quot;;color:#666666">Amazon, Alexa, and all related logos and motion marks are trademarks of Amazon.com, Inc. or its affiliates.<u></u><u></u></span></p>
+                                                                        <p align="center" style="text-align:center;line-height:8.25pt">
+<span style="font-size:8.5pt;font-family:&quot;Helvetica&quot;,&quot;sans-serif&quot;;color:#666666">Address:
+<span class="m_627685752147103864MsoHyperlink"><span style="color:#595757"><a href="https://maps.google.com/?q=20191+Windrow+Dr.,+Suite+B,+Lake+Forest,+CA+92630,+USA&amp;entry=gmail&amp;source=g">20191 Windrow Dr., Suite B, Lake Forest, CA 92630, USA</a></span></span><u></u><u></u></span></p>
+                                                                        <p align="center" style="text-align:center;line-height:8.25pt">
+                                                                            <span style="font-size:8.5pt;font-family:&quot;Helvetica&quot;,&quot;sans-serif&quot;;color:#d7006d">Copyright © 2017 Cal-Comp Big Data, Inc. All Rights Reserved.<u></u><u></u></span></p>
+                                                                    </td>
+                                                                </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+
+                        <div class="modal fade" id="edm2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+                            <div class="modal-dialog" style="width: 646px !important;">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        <h4 class="modal-title">HiMirrorプラス秋葉原で展示決定！</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div align="center">
+                                            <table class="m_-1953614849895578002MsoNormalTable" border="0" cellspacing="0" cellpadding="0" width="600" style="width:6.25in;max-width:600px">
+                                                <tbody>
+                                                <tr>
+                                                    <td style="padding:0in 0in 0in 0in">
+                                                        <div align="center">
+                                                            <table class="m_-1953614849895578002MsoNormalTable" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100.0%">
+                                                                <tbody>
+                                                                <tr>
+                                                                    <td style="padding:0in 0in 0in 0in">
+                                                                        <p class="MsoNormal" align="center" style="text-align:center"><span style="font-family:&quot;Helvetica&quot;,&quot;sans-serif&quot;"><a href="http://bitly.com/2g9D9AY" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://bitly.com/2g9D9AY&amp;source=gmail&amp;ust=1521251262456000&amp;usg=AFQjCNG-SUgHmfjZWPA0XdPuU8o6bXHmbw"><img border="0" width="601" id="m_-1953614849895578002_x0000_i1027" src="https://ci6.googleusercontent.com/proxy/fGvpiaYRChzvJO8ShPJpuLy11Vb69Y2qqrVJTi5IkIghBEi2RTkqGzijxzg3ygZw8LXIX1a2SjAdXmFICFChs6u3EIxP3Dz631m94RlC_6Lm9iQYFMhUNE36wKisk-LgY4xr3zbvNIf42Zk=s0-d-e1-ft#https://xyzwebsite.blob.core.windows.net/wwwportal/HiMirror_edm_header-JP-2017105.jpg" alt="HiMirrorLogo" class="CToWUd"></a><u></u><u></u></span></p>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="padding:0in 0in 0in 0in">
+                                                                        <p class="MsoNormal" align="center" style="text-align:center"><span style="font-family:&quot;Helvetica&quot;,&quot;sans-serif&quot;"><img border="0" width="601" id="m_-1953614849895578002_x0000_i1028" src="https://ci5.googleusercontent.com/proxy/a8yzyxYF4XTMlklzPGCa4E0cICuWGMZ06ei9P44lCJDLzxf5MlQHbxaNtdk1MWqvlGXqR0KRWVac1B0PSEip5DiV9ELOil814Uni39r1XNFVknzWl1Py3cwOVhLeqdY0Zid-Zw=s0-d-e1-ft#https://xyzwebsite.blob.core.windows.net/wwwportal/HiMirror_edm_JP-2017105.jpg" alt="HiMirrorBanner" class="CToWUd a6T" tabindex="0"><div class="a6S" dir="ltr" style="opacity: 0.01; left: 791.5px; top: 957.328px;"><div id=":1zt" class="T-I J-J5-Ji aQv T-I-ax7 L3 a5q" role="button" tabindex="0" aria-label="Download attachment " data-tooltip-class="a1V" data-tooltip="Download"><div class="aSK J-J5-Ji aYr"></div></div></div><u></u><u></u></span></p>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="background:#d7006d;padding:15.0pt 0in 15.0pt 0in">
+                                                                        <div align="center">
+                                                                            <table class="m_-1953614849895578002MsoNormalTable" border="0" cellspacing="0" cellpadding="0" width="480" style="width:5.0in;max-width:480px">
+                                                                                <tbody>
+                                                                                <tr>
+                                                                                    <td style="padding:0in 0in 0in 0in">
+                                                                                        <div align="center">
+                                                                                            <table class="m_-1953614849895578002MsoNormalTable" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100.0%">
+                                                                                                <tbody>
+                                                                                                <tr>
+                                                                                                    <td style="padding:0in 3.75pt 0in 3.75pt">
+                                                                                                        <p align="center" style="text-align:center"><span style="font-size:15.0pt;font-family:&quot;MS Gothic&quot;;color:white">展示会場</span><span style="font-size:15.0pt;color:white">: BRIDD
+</span><span style="font-size:15.0pt;font-family:&quot;MS Gothic&quot;;color:white">秋葉原</span><span style="font-size:15.0pt;color:white"><u></u><u></u></span></p>
+                                                                                                        <p align="center" style="text-align:center"><span style="font-size:15.0pt;font-family:&quot;MS Gothic&quot;;color:white">アクセス</span><span style="font-size:15.0pt;color:white">:
+</span><span style="font-size:15.0pt;font-family:&quot;MS Gothic&quot;;color:white">東京都台東区台東</span><span style="font-size:15.0pt;color:white">1-13-9<u></u><u></u></span></p>
+                                                                                                        <p align="center" style="text-align:center"><span style="font-size:15.0pt;color:white">JP
+</span><span style="font-size:15.0pt;font-family:&quot;MS Gothic&quot;;color:white">山手線　秋葉原から徒歩</span><span style="font-size:15.0pt;color:white">5</span><span style="font-size:15.0pt;font-family:&quot;MS Gothic&quot;;color:white">分</span><span style="font-size:15.0pt;color:white"><u></u><u></u></span></p>
+                                                                                                        <p align="center" style="text-align:center"><span style="font-size:15.0pt;font-family:&quot;MS Gothic&quot;;color:white">展示期間</span><span style="font-size:15.0pt;color:white">:10/3-10/27
+</span><span style="font-size:15.0pt;font-family:&quot;MS Gothic&quot;;color:white">（平日のみ）</span><span style="font-size:15.0pt;color:white"><u></u><u></u></span></p>
+                                                                                                        <p align="center" style="text-align:center"><span style="font-size:15.0pt;font-family:&quot;MS Gothic&quot;;color:white">営業時間</span><span style="font-size:15.0pt;color:white">: 10:00-12:00 13:00-16:00<u></u><u></u></span></p>
+                                                                                                        <p align="center" style="text-align:center"><span style="font-size:15.0pt;font-family:&quot;MS Gothic&quot;;color:white">ご予約メール</span><span style="font-size:15.0pt;color:white">:
+<a href="mailto:HiSales_JP@himirror.com" target="_blank"><span style="font-size:12.0pt;color:white">HiSales_JP@himirror.com</span></a><u></u><u></u></span></p>
+                                                                                                        <p align="center" style="text-align:center"><span style="font-size:15.0pt;font-family:&quot;MS Gothic&quot;;color:white">※</span><span style="font-size:15.0pt;color:white">3</span><span style="font-size:15.0pt;font-family:&quot;MS Gothic&quot;;color:white">営業日前までにご予約をお願いいたします</span><span style="font-size:15.0pt;color:white"><u></u><u></u></span></p>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="background:white;padding:11.25pt 11.25pt 11.25pt 11.25pt">
+                                                                        <div align="center">
+                                                                            <table class="m_-1953614849895578002MsoNormalTable" border="0" cellspacing="0" cellpadding="0" width="480" style="width:5.0in;max-width:480px">
+                                                                                <tbody>
+                                                                                <tr>
+                                                                                    <td style="padding:0in 0in 0in 0in">
+                                                                                        <div align="center">
+                                                                                            <table class="m_-1953614849895578002MsoNormalTable" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100.0%">
+                                                                                                <tbody>
+                                                                                                <tr>
+                                                                                                    <td style="padding:0in 0in 0in 0in">
+                                                                                                        <p class="MsoNormal" align="center" style="text-align:center"><a href="http://bitly.com/2hKEstT" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://bitly.com/2hKEstT&amp;source=gmail&amp;ust=1521251262456000&amp;usg=AFQjCNFGGvc1gmnHIUAOk-1NOxMY81OJZQ"><img border="0" id="m_-1953614849895578002_x0000_i1029" src="https://ci6.googleusercontent.com/proxy/HmjUVBVBdBqx4mwGT8MI2LN_Hne_SZ3BnVYnq6L1EP4yYX0mg6c4lIgiVH32RAsbJQTl6KMxPQutHWrw295q3E811vOrfjmtR53JFqSZJqDxs-qHjYevDMay8_jdxtcpLheJR0H8Xw1rYS-EXmBl7JBH4rRjOOaNnJDe=s0-d-e1-ft#http://twportal.blob.core.windows.net/images-wwwportal/himirror/mailform/us_en/20170124/ic_sns-fb.png" alt="Facebook" class="CToWUd"></a><u></u><u></u></p>
+                                                                                                    </td>
+                                                                                                    <td style="padding:0in 0in 0in 0in">
+                                                                                                        <p class="MsoNormal" align="center" style="text-align:center"><a href="http://bitly.com/2hMs8Ju" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://bitly.com/2hMs8Ju&amp;source=gmail&amp;ust=1521251262456000&amp;usg=AFQjCNGay83k2AyDdQis7-5su5n7hVYUSQ"><img border="0" id="m_-1953614849895578002_x0000_i1030" src="https://ci5.googleusercontent.com/proxy/IFFzo2KFi_IaecOtrKAlz9_Nrej7AxovXd0jPLx_P2leiUladrn1IacA0BXqmQyvjn5RcARzfLSawnIZ9WtGntW9BypIu7Al2lY_rcsri9kbFqajZiwDOZHIATxOipZ5iMv4vwBRfIbG6KkgU56lzD97P__G0PHJEqJe=s0-d-e1-ft#http://twportal.blob.core.windows.net/images-wwwportal/himirror/mailform/us_en/20170124/ic_sns-yt.png" alt="Youtube" class="CToWUd"></a><u></u><u></u></p>
+                                                                                                    </td>
+                                                                                                    <td style="padding:0in 0in 0in 0in">
+                                                                                                        <p class="MsoNormal" align="center" style="text-align:center"><a href="http://bitly.com/2g8yoaT" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://bitly.com/2g8yoaT&amp;source=gmail&amp;ust=1521251262456000&amp;usg=AFQjCNFx_9DnXaVxRuC4CQabLhuddgGdUw"><img border="0" id="m_-1953614849895578002_x0000_i1031" src="https://ci5.googleusercontent.com/proxy/VroP7WU5_WE80HNlkL7ZHs31S99QaFmonW5fQHiiEg9KB6MbV25n4yUp0EpdRU099vxLmcvLBtJjlPhv-4tUfgEw8GYg5R-C7u4MY72JqKIhaSJefQHeYNyp2soNKf8yeBhlaU5u0u9_-lSr7y83YEIKNRaFjTJdiQX0=s0-d-e1-ft#http://twportal.blob.core.windows.net/images-wwwportal/himirror/mailform/us_en/20170124/ic_sns-ig.png" alt="Instagram" class="CToWUd"></a><u></u><u></u></p>
+                                                                                                    </td>
+                                                                                                    <td style="padding:0in 0in 0in 0in">
+                                                                                                        <p class="MsoNormal" align="center" style="text-align:center"><a href="http://bitly.com/2g9fSyZ" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://bitly.com/2g9fSyZ&amp;source=gmail&amp;ust=1521251262456000&amp;usg=AFQjCNFclVY3T2ewnnlLmJMteOcXRqfLpQ"><img border="0" id="m_-1953614849895578002_x0000_i1032" src="https://ci6.googleusercontent.com/proxy/POwG-iVndIZPj88WTYkJYsborhW2enLMqjNnHf9iBmv536pFoPwjbfYjkBP1HHI1VebS_JCjVwCUs0UiwZFREsZ-S_eTwWZP9BozuDHHUfXPHe2Ho3DGyleauoR51fcFzFpi66YeFe51u56QBrLQSe6hO7iH_jOnUqXB=s0-d-e1-ft#http://twportal.blob.core.windows.net/images-wwwportal/himirror/mailform/us_en/20170124/ic_sns-tw.png" alt="twitter" class="CToWUd"></a><u></u><u></u></p>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="background:#a00058;padding:0in 0in 0in 0in"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="background:#a00058;padding:6.0pt 0in 6.0pt 0in">
+                                                                        <p align="center" style="text-align:center;line-height:20.25pt">
+                                                                            <span style="font-size:9.0pt;font-family:&quot;MS Gothic&quot;;color:white">こちらのメールは</span><span style="font-size:9.0pt;color:white">HiMirror</span><span style="font-size:9.0pt;font-family:&quot;MS Gothic&quot;;color:white">チームから自動的に配信されて<wbr>います。</span><span style="font-size:9.0pt;color:white"><u></u><u></u></span></p>
+                                                                        <p align="center" style="text-align:center;line-height:20.25pt">
+                                                                            <span style="font-size:9.0pt;font-family:&quot;MS Gothic&quot;;color:white">今後、<wbr>こちらのメールを停止したい場合は下記までご連絡ください：</span><span style="font-size:9.0pt;color:white">
+<a href="mailto:HiSales_JP@himirror.com" target="_blank"><span style="color:white">HiSales_JP@himirror.com</span></a><u></u><u></u></span></p>
+                                                                        <p align="center" style="text-align:center;line-height:20.25pt">
+<span style="font-size:9.0pt;color:white">Copyright © 2017 Cal-Comp Big Data, Inc.
+</span><span style="font-size:9.0pt;font-family:&quot;MS Gothic&quot;;color:white">すべての権利を保有します。</span><span style="font-size:9.0pt;color:white"><u></u><u></u></span></p>
+                                                                    </td>
+                                                                </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="edm3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+                            <div class="modal-dialog" style="width: 646px !important;">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        <h4 class="modal-title">XYZprinting K-12 STEAM is coming</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                    <div align="center">
+                                    <table class="m_4648353589170252898MsoNormalTable" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100.0%;border-collapse:collapse">
+                                    <tbody>
+                                    <tr>
+                                        <td style="padding:15.0pt 15.0pt 15.0pt 15.0pt">
+                                            <p class="MsoNormal"><span style="color:#333333"><a href="http://bitly.com/2EBKnLF" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://bitly.com/2EBKnLF&amp;source=gmail&amp;ust=1521251881372000&amp;usg=AFQjCNG-0V6mk9WWTmesCnKqu9pz60jUOg"><span style="font-family:&quot;Arial&quot;,&quot;sans-serif&quot;"><img border="0" id="m_4648353589170252898_x0000_i1027" src="https://ci6.googleusercontent.com/proxy/P_29NDGWvxqPit4vT8tFEXido2drVVoL9K_ieFMlPQkTBlrxTur4rU4w3BvWBSrY33S5ycNWxpVYjsg3aut3bLVpGrZOd8uGRTenzZ0zNWLXE04iLuiQBfrZTb1SYcanZffB=s0-d-e1-ft#http://twportal.blob.core.windows.net/images-hf/general/logored_edm_us_en.jpg" class="CToWUd"></span></a><u></u><u></u></span></p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding:0in 0in 7.5pt 0in">
+                                            <p class="MsoNormal" align="center" style="text-align:center"><span style="color:#333333"><img border="0" width="601" id="m_4648353589170252898_x0000_i1028" src="https://ci5.googleusercontent.com/proxy/OAyGyyFbPeGTTDX3NGrckieK0QA85MSpVXgPIeQlfUcpoY57fi-VSpw3VWReUFdQjNuTJzw3IwrbT0-wsA775CzD5RHw-CQ6XzZJ5E8Rspa0k-U7FRoFocSSE-CT5A=s0-d-e1-ft#http://twportal.blob.core.windows.net/images-hf/general/img_decoline.png" class="CToWUd"><u></u><u></u></span></p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                    <td style="padding:0in 0in 0in 0in">
+                                    <div align="center">
+                                    <table class="m_4648353589170252898MsoNormalTable" border="0" cellspacing="0" cellpadding="0" width="600" style="width:6.25in;border-collapse:collapse;max-width:600px">
+                                    <tbody>
+                                    <tr>
+                                    <td style="padding:0in 0in 0in 0in">
+                                    <div align="center">
+                                    <table class="m_4648353589170252898MsoNormalTable" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100.0%;border-collapse:collapse">
+                                    <tbody>
+                                    <tr>
+                                        <td style="padding:0in 0in 0in 0in">
+                                            <p class="MsoNormal" align="center" style="text-align:center"><span style="font-size:1.0pt;color:#333333"><a href="http://bitly.com/2EHD44S" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://bitly.com/2EHD44S&amp;source=gmail&amp;ust=1521251881372000&amp;usg=AFQjCNEyXa-bJWbwWDpc8hJxl5yWJ6vgmw"><span style="font-size:12.0pt;font-family:&quot;Arial&quot;,&quot;sans-serif&quot;"><img border="0" width="599" id="m_4648353589170252898_x0000_i1029" src="https://ci3.googleusercontent.com/proxy/JrduPNmThp2wy3E2XkqIhd6j3aFc8qpwupyq1lzGBJAyfEWmNWmYGLEKVvASiobS9IaKL6Oea-6k7Xrazpskx22tct7tLWt5ySjTE_P9C_kuj9QeOycbfwafpZDqehCMbFmIaTo=s0-d-e1-ft#https://xyzwebsite.blob.core.windows.net/us-website/USeDM20180215_topBanner.jpg" class="CToWUd"></span></a><u></u><u></u></span></p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding:15.0pt 30.0pt 15.0pt 30.0pt">
+                                            <p align="center" style="text-align:center;line-height:26.25pt"><b><span style="font-size:19.0pt;color:#4d4d4d">Have you had a chance to explore<br>
+3D printing and STEM/STEAM education?<u></u><u></u></span></b></p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding:0in 0in 0in 0in">
+                                            <div align="center">
+                                                <table class="m_4648353589170252898MsoNormalTable" border="0" cellspacing="0" cellpadding="0" width="600" style="width:6.25in;border-collapse:collapse;max-width:600px">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td style="padding:0in 0in 0in 0in">
+                                                            <div align="center">
+                                                                <table class="m_4648353589170252898MsoNormalTable" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100.0%;border-collapse:collapse">
+                                                                    <tbody>
+                                                                    <tr>
+                                                                        <td style="padding:0in 0in 0in 0in">
+                                                                            <div align="center">
+                                                                                <table class="m_4648353589170252898MsoNormalTable" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">
+                                                                                    <tbody>
+                                                                                    <tr>
+                                                                                        <td width="100%" style="width:100.0%;padding:0in 0in 0in 0in">
+                                                                                            <table class="m_4648353589170252898MsoNormalTable" border="0" cellspacing="0" cellpadding="0" align="left" width="300" style="width:225.0pt;border-collapse:collapse">
+                                                                                                <tbody>
+                                                                                                <tr>
+                                                                                                    <td style="padding:0in 16.5pt 0in 16.5pt">
+                                                                                                        <table class="m_4648353589170252898MsoNormalTable" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">
+                                                                                                            <tbody>
+                                                                                                            <tr>
+                                                                                                                <td style="padding:0in 0in 0in 0in">
+                                                                                                                    <p><b><span style="font-size:15.0pt;color:#f7931e">It's harder than it sounds<u></u><u></u></span></b></p>
+                                                                                                                </td>
+                                                                                                            </tr>
+                                                                                                            </tbody>
+                                                                                                        </table>
+                                                                                                        <p style="line-height:18.0pt"><span style="color:black">You may have found, like we did, that there are a lot of barriers in the way of teaching 3D printing, such as learning new skills or finding the right standards. We decided to do something about it this
+ year and are releasing a STEAM education service to make implementing STEAM easier in the classroom.<u></u><u></u></span></p>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                        <td style="padding:0in 0in 0in 0in">
+                                                                                            <div>
+                                                                                                <div align="center">
+                                                                                                    <table class="m_4648353589170252898MsoNormalTable" border="0" cellspacing="0" cellpadding="0" width="300" style="width:225.0pt;border-collapse:collapse">
+                                                                                                        <tbody>
+                                                                                                        <tr>
+                                                                                                            <td width="100%" style="width:100.0%;padding:0in 0in 0in 0in">
+                                                                                                                <table class="m_4648353589170252898MsoNormalTable" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">
+                                                                                                                    <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td style="padding:0in 0in 0in 0in">
+                                                                                                                            <p class="MsoNormal"><span style="color:#333333"><img border="0" width="300" id="m_4648353589170252898_x0000_i1030" src="https://ci3.googleusercontent.com/proxy/eLtqvjoQLfg0c085-m999MKTv8ptFzVQkMChnju7pLUOdTV2Va0EASIULLGkvEsjj1O70boNgK4RE8TVAC0gm93Jv8Qlx-E1q_eHnRNvUgnSgDbHzQGJjeH07XM8fIR83g=s0-d-e1-ft#https://xyzwebsite.blob.core.windows.net/us-website/USeDM20180215_img_1.png" class="CToWUd a6T" tabindex="0"><div class="a6S" dir="ltr" style="opacity: 0.01;"><div id=":20b" class="T-I J-J5-Ji aQv T-I-ax7 L3 a5q" title="Download" role="button" tabindex="0" aria-label="Download attachment " data-tooltip-class="a1V"><div class="aSK J-J5-Ji aYr"></div></div></div><u></u><u></u></span></p>
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                    </tbody>
+                                                                                                                </table>
+                                                                                                            </td>
+                                                                                                        </tr>
+                                                                                                        </tbody>
+                                                                                                    </table>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding:15.0pt 30.0pt 15.0pt 30.0pt">
+                                            <p align="center" style="text-align:center"><b><span style="font-size:15.0pt;color:#f7931e">Let XYZprinting do you a favor<u></u><u></u></span></b></p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding:0in 0in 0in 0in">
+                                            <div align="center">
+                                                <table class="m_4648353589170252898MsoNormalTable" border="0" cellspacing="0" cellpadding="0" width="600" style="width:6.25in;border-collapse:collapse;max-width:600px">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td style="padding:0in 0in 0in 0in">
+                                                            <div align="center">
+                                                                <table class="m_4648353589170252898MsoNormalTable" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100.0%;border-collapse:collapse">
+                                                                    <tbody>
+                                                                    <tr>
+                                                                        <td style="padding:0in 0in 0in 0in">
+                                                                            <div align="center">
+                                                                                <table class="m_4648353589170252898MsoNormalTable" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">
+                                                                                    <tbody>
+                                                                                    <tr>
+                                                                                        <td width="100%" style="width:100.0%;padding:0in 0in 0in 0in">
+                                                                                            <table class="m_4648353589170252898MsoNormalTable" border="0" cellspacing="0" cellpadding="0" align="left" width="300" style="width:225.0pt;border-collapse:collapse">
+                                                                                                <tbody>
+                                                                                                <tr>
+                                                                                                    <td style="padding:0in 0in 0in 0in">
+                                                                                                        <p class="MsoNormal"><span style="color:#333333"><img border="0" width="300" id="m_4648353589170252898_x0000_i1031" src="https://ci5.googleusercontent.com/proxy/zUpcmgf1EEsOpzi3EiX8P83UZeYaZcz9cE-fFpAzWim8dKnPmWLSCTu57kruCAAHaqycAHP_ylkQpjaw8YGyk7IPczbbsm-hjbZ8E2EtKMFqI8K5sJcZiQ-yYVv0ucW1ug=s0-d-e1-ft#https://xyzwebsite.blob.core.windows.net/us-website/USeDM20180215_img_2.jpg" class="CToWUd a6T" tabindex="0"><div class="a6S" dir="ltr" style="opacity: 0.01;"><div id=":20d" class="T-I J-J5-Ji aQv T-I-ax7 L3 a5q" title="Download" role="button" tabindex="0" aria-label="Download attachment " data-tooltip-class="a1V"><div class="aSK J-J5-Ji aYr"></div></div></div><u></u><u></u></span></p>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                        <td style="padding:0in 0in 0in 0in">
+                                                                                            <div>
+                                                                                                <div align="center">
+                                                                                                    <table class="m_4648353589170252898MsoNormalTable" border="0" cellspacing="0" cellpadding="0" width="300" style="width:225.0pt;border-collapse:collapse">
+                                                                                                        <tbody>
+                                                                                                        <tr>
+                                                                                                            <td width="100%" style="width:100.0%;background:#fbb03b;padding:0in 0in 0in 0in">
+                                                                                                                <table class="m_4648353589170252898MsoNormalTable" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">
+                                                                                                                    <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td style="padding:15.0pt 18.75pt 15.0pt 18.75pt">
+                                                                                                                            <p style="line-height:18.0pt"><b><span style="font-size:13.5pt;color:black">Over 30 lessons<u></u><u></u></span></b></p>
+                                                                                                                            <p style="line-height:18.0pt"><span style="font-size:10.5pt;color:black">We've prepared over 30 lessons that will arm you with fundamental course materials and give you the tools to organize group discussions and assess student's learning performance.
+<u></u><u></u></span></p>
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                    </tbody>
+                                                                                                                </table>
+                                                                                                            </td>
+                                                                                                        </tr>
+                                                                                                        </tbody>
+                                                                                                    </table>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding:0in 0in 0in 0in">
+                                            <div align="center">
+                                                <table class="m_4648353589170252898MsoNormalTable" border="0" cellspacing="0" cellpadding="0" width="600" style="width:6.25in;border-collapse:collapse;max-width:600px">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td style="padding:0in 0in 0in 0in">
+                                                            <div align="center">
+                                                                <table class="m_4648353589170252898MsoNormalTable" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100.0%;border-collapse:collapse">
+                                                                    <tbody>
+                                                                    <tr>
+                                                                        <td style="padding:0in 0in 0in 0in">
+                                                                            <div align="center">
+                                                                                <table class="m_4648353589170252898MsoNormalTable" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">
+                                                                                    <tbody>
+                                                                                    <tr>
+                                                                                        <td width="100%" style="width:100.0%;padding:0in 0in 0in 0in">
+                                                                                            <table class="m_4648353589170252898MsoNormalTable" border="0" cellspacing="0" cellpadding="0" align="left" width="300" style="width:225.0pt;border-collapse:collapse">
+                                                                                                <tbody>
+                                                                                                <tr>
+                                                                                                    <td style="padding:0in 16.5pt 0in 16.5pt">
+                                                                                                        <p class="MsoNormal" style="line-height:18.0pt"><span style="color:#333333"><img border="0" width="250" id="m_4648353589170252898_x0000_i1032" src="https://ci6.googleusercontent.com/proxy/gwPJWNX958IVqSNFuTJ7hmxVfXRKGGOgOqyc6BBRhyk5GbGM6eSDZZRe8zy5zBfku8q448oZPRdGaqCKmZtxXgqsiPxUiq7JSWT_Rv8QpKvaCHBADF32yhn3Xe5XhWZ3bQ=s0-d-e1-ft#https://xyzwebsite.blob.core.windows.net/us-website/USeDM20180215_img_3.png" class="CToWUd a6T" tabindex="0"><div class="a6S" dir="ltr" style="opacity: 0.01;"><div id=":20e" class="T-I J-J5-Ji aQv T-I-ax7 L3 a5q" title="Download" role="button" tabindex="0" aria-label="Download attachment " data-tooltip-class="a1V"><div class="aSK J-J5-Ji aYr"></div></div></div><u></u><u></u></span></p>
+                                                                                                        <p align="center" style="text-align:center;line-height:18.0pt"><b><span style="font-size:13.5pt;color:black">NGSS-based<u></u><u></u></span></b></p>
+                                                                                                        <p style="line-height:18.0pt"><span style="font-size:10.5pt;color:black">Lessons has been designed based on Next Generation Science Standards (NGSS) and come with course topic guidance, exercises and 3D modeling and printing instructions to help students learn
+ problem-solving skills. <u></u><u></u></span></p>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                        <td style="padding:0in 0in 0in 0in">
+                                                                                            <div>
+                                                                                                <div align="center">
+                                                                                                    <table class="m_4648353589170252898MsoNormalTable" border="0" cellspacing="0" cellpadding="0" width="300" style="width:225.0pt;border-collapse:collapse">
+                                                                                                        <tbody>
+                                                                                                        <tr>
+                                                                                                            <td width="100%" style="width:100.0%;padding:0in 0in 0in 0in">
+                                                                                                                <table class="m_4648353589170252898MsoNormalTable" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">
+                                                                                                                    <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td style="padding:0in 18.75pt 0in 18.75pt">
+                                                                                                                            <p class="MsoNormal" style="line-height:18.0pt"><span style="color:#333333"><img border="0" width="250" id="m_4648353589170252898_x0000_i1033" src="https://ci6.googleusercontent.com/proxy/Pq-r9ZCe1F8KqGG68_j5A8-y7wY0wMBZk7PTZmixpKT805d5W07OJFe7B4ivWzfW7Cqw_OMUeHGN0EZVcrWgep6rLC0V6EcyeS1d3IdkG-qNywayNH5JcpjEtZ-5cwm5hw=s0-d-e1-ft#https://xyzwebsite.blob.core.windows.net/us-website/USeDM20180215_img_4.png" class="CToWUd a6T" tabindex="0"><div class="a6S" dir="ltr" style="opacity: 0.01;"><div id=":20c" class="T-I J-J5-Ji aQv T-I-ax7 L3 a5q" title="Download" role="button" tabindex="0" aria-label="Download attachment " data-tooltip-class="a1V"><div class="aSK J-J5-Ji aYr"></div></div></div><u></u><u></u></span></p>
+                                                                                                                            <p align="center" style="text-align:center;line-height:18.0pt"><b><span style="font-size:13.5pt;color:black">Education Shop<u></u><u></u></span></b></p>
+                                                                                                                            <p style="line-height:18.0pt"><span style="font-size:10.5pt;color:black">To complement our STEAM curriculum, we are also launching an online Education Shop to provide educators with the best products to suit their needs as well as special discounts and offerings.
+<u></u><u></u></span></p>
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                    </tbody>
+                                                                                                                </table>
+                                                                                                            </td>
+                                                                                                        </tr>
+                                                                                                        </tbody>
+                                                                                                    </table>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding:0in 0in 0in 0in">
+                                            <p class="MsoNormal" align="center" style="text-align:center"><span style="font-size:1.0pt;color:#333333"><a href="http://bitly.com/2EHD44S" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://bitly.com/2EHD44S&amp;source=gmail&amp;ust=1521251881372000&amp;usg=AFQjCNEyXa-bJWbwWDpc8hJxl5yWJ6vgmw"><span style="font-size:12.0pt;font-family:&quot;Arial&quot;,&quot;sans-serif&quot;"><img border="0" id="m_4648353589170252898_x0000_i1034" src="https://ci6.googleusercontent.com/proxy/gWCdRJ1bEevLiEMHDwG9zym667u7i10o03j8-Z30Ik2VGJc9eh1Ybbd5V69CcSlXpiuEiSWaW_BBL6QEPOo2Co1cPbs5u2K42jEWxLu2Ayq2UPfESOZqMHj3uZkXTDo3Bd4ZI-U=s0-d-e1-ft#https://xyzwebsite.blob.core.windows.net/us-website/USeDM20180215_btn_img_5.png" class="CToWUd"></span></a><u></u><u></u></span></p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding:0in 0in 0in 0in">
+                                            <p class="MsoNormal" align="center" style="text-align:center"><span style="font-size:1.0pt;color:#333333"><a href="http://bitly.com/2EHD44S" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://bitly.com/2EHD44S&amp;source=gmail&amp;ust=1521251881372000&amp;usg=AFQjCNEyXa-bJWbwWDpc8hJxl5yWJ6vgmw"><span style="font-size:12.0pt;font-family:&quot;Arial&quot;,&quot;sans-serif&quot;"><img border="0" width="601" id="m_4648353589170252898_x0000_i1035" src="https://ci5.googleusercontent.com/proxy/s2Jmcw4tCChJ83w8G4MPyr_XqnmZaStNzwyTlcAASyPv2fXmuprVA5QN_2S0l7LsdOuSlOAm2Zthvzm0oO7TMleL1GfeOFzhMTz76FAe3CQ2Wb1m6WqE7CizVd5H5IkoMQ=s0-d-e1-ft#https://xyzwebsite.blob.core.windows.net/us-website/USeDM20180215_img_6.jpg" class="CToWUd"></span></a><u></u><u></u></span></p>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                    </table>
+                                    </div>
+                                    </td>
+                                    </tr>
+                                    </tbody>
+                                    </table>
+                                    </div>
+                                    </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="background:white;padding:0in 0in 0in 0in">
+                                            <div align="center">
+                                                <table class="m_4648353589170252898MsoNormalTable" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td style="padding:0in 0in 0in 0in">
+                                                            <table class="m_4648353589170252898MsoNormalTable" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100.0%;border-collapse:collapse">
+                                                                <tbody>
+                                                                <tr>
+                                                                    <td width="135" style="width:101.25pt;padding:0in 0in 0in 0in">
+                                                                        <p class="MsoNormal" align="center" style="text-align:center"><span style="font-size:1.0pt;color:#333333"><a href="http://bitly.com/2EFJvpm" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://bitly.com/2EFJvpm&amp;source=gmail&amp;ust=1521251881372000&amp;usg=AFQjCNHHcFhK984NgTotbVnu4DxfLXIIFA"><span style="font-size:12.0pt;font-family:&quot;Arial&quot;,&quot;sans-serif&quot;"><img border="0" id="m_4648353589170252898_x0000_i1036" src="https://ci4.googleusercontent.com/proxy/DV6fh8RtfR50bCmm1R22SYefRn36lgJ7Str2_e3Q6LRw1-iMx1WkXFxAH5KmXEu5MDAHNF5vCic5zAJka46fi8LnOwv1gAqfZzS-HGKoIvW9fBFKwB4PcQMPQIyjnN50=s0-d-e1-ft#https://xyzwebsite.blob.core.windows.net/us-website/Gallery_img_02top1.png" class="CToWUd"></span></a><u></u><u></u></span></p>
+                                                                    </td>
+                                                                    <td width="93" style="width:69.75pt;padding:0in 0in 0in 0in">
+                                                                        <p class="MsoNormal" align="center" style="text-align:center"><span style="font-size:1.0pt;color:#333333"><a href="http://bitly.com/2EFJNfW" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://bitly.com/2EFJNfW&amp;source=gmail&amp;ust=1521251881373000&amp;usg=AFQjCNFxHY4F9EHCneG6OQKPa7iDkFX3Uw"><span style="font-size:12.0pt;font-family:&quot;Arial&quot;,&quot;sans-serif&quot;"><img border="0" id="m_4648353589170252898_x0000_i1037" src="https://ci3.googleusercontent.com/proxy/EdnEUUd_Zkb60pKeZlklUIHmHMuGAk2iy5qXYop0MQz5BwFHDpM2TOe4jb8IlEqLeNjo7H_A1X8LjXvYwJT51pk6Rq-2UXtkV7u2SzUdyoiLd4Yc8V43L1FC7ZheGW2t=s0-d-e1-ft#https://xyzwebsite.blob.core.windows.net/us-website/Gallery_img_02top2.png" class="CToWUd"></span></a><u></u><u></u></span></p>
+                                                                    </td>
+                                                                    <td width="72" style="width:.75in;padding:0in 0in 0in 0in">
+                                                                        <p class="MsoNormal" align="center" style="text-align:center"><span style="font-size:1.0pt;color:#333333"><a href="http://bitly.com/2EDTc7z" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://bitly.com/2EDTc7z&amp;source=gmail&amp;ust=1521251881373000&amp;usg=AFQjCNH-E65skeMeLQu7041oxGFe-jLgZA"><span style="font-size:12.0pt;font-family:&quot;Arial&quot;,&quot;sans-serif&quot;"><img border="0" id="m_4648353589170252898_x0000_i1038" src="https://ci4.googleusercontent.com/proxy/uGGbu-LgTFBtXd1pF2f3LWiBOthML-NWLzsZHspFEDsUN9I07HxR-y6RseCeR4MR9OkzuqpAm3uqcMPWkdNdNdHAjwKnDWZyFnI49JSDjN_t0yW1fRH8XWP6VDzjCKum=s0-d-e1-ft#https://xyzwebsite.blob.core.windows.net/us-website/Gallery_img_02top3.png" class="CToWUd"></span></a><u></u><u></u></span></p>
+                                                                    </td>
+                                                                </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="100%" style="width:100.0%;background:#f2a1b4;padding:15.0pt 15.0pt 15.0pt 15.0pt">
+                                            <p><b><span style="font-size:16.5pt;color:white">3D Gallery Monthly Top 3<u></u><u></u></span></b></p>
+                                            <p><span style="font-size:9.0pt;color:white">We have thousands of designs available for FREE DOWNLOAD. visit our 3D gallery now!!<u></u><u></u></span></p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding:0in 0in 0in 0in">
+                                            <div align="center">
+                                                <table class="m_4648353589170252898MsoNormalTable" border="0" cellspacing="0" cellpadding="0" width="600" style="width:6.25in;border-collapse:collapse;max-width:600px">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td style="padding:0in 0in 0in 0in">
+                                                            <div align="center">
+                                                                <table class="m_4648353589170252898MsoNormalTable" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100.0%;background:whitesmoke;border-collapse:collapse">
+                                                                    <tbody>
+                                                                    <tr>
+                                                                        <td style="padding:0in 0in 0in 0in">
+                                                                            <div align="center">
+                                                                                <table class="m_4648353589170252898MsoNormalTable" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">
+                                                                                    <tbody>
+                                                                                    <tr>
+                                                                                        <td width="100%" style="width:100.0%;padding:7.5pt 15.0pt 7.5pt 15.0pt">
+                                                                                            <div>
+                                                                                                <div align="center">
+                                                                                                    <table class="m_4648353589170252898MsoNormalTable" border="0" cellspacing="0" cellpadding="0" width="280" style="width:210.0pt;border-collapse:collapse">
+                                                                                                        <tbody>
+                                                                                                        <tr>
+                                                                                                            <td width="100%" style="width:100.0%;padding:0in 0in 0in 0in">
+                                                                                                                <table class="m_4648353589170252898MsoNormalTable" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">
+                                                                                                                    <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td style="padding:0in 0in 0in 0in">
+                                                                                                                            <p class="MsoNormal"><span style="color:#333333"><a href="http://bitly.com/2EESDdz" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://bitly.com/2EESDdz&amp;source=gmail&amp;ust=1521251881373000&amp;usg=AFQjCNG1uQGMBS6XAHVYHnAUJ8vcMm3Upw"><span style="font-family:&quot;Arial&quot;,&quot;sans-serif&quot;"><u></u><u></u></span></a></span></p>
+                                                                                                                            <p><b><span style="font-size:16.0pt;color:black"><a href="http://bitly.com/2EESDdz" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://bitly.com/2EESDdz&amp;source=gmail&amp;ust=1521251881373000&amp;usg=AFQjCNG1uQGMBS6XAHVYHnAUJ8vcMm3Upw"><span style="color:black">LET US IMPROVE YOUR EXPERIENCE
+<u></u><u></u></span></a></span></b></p>
+                                                                                                                            <p><span style="font-size:13.5pt;color:#55acee"><a href="http://bitly.com/2EESDdz" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://bitly.com/2EESDdz&amp;source=gmail&amp;ust=1521251881373000&amp;usg=AFQjCNG1uQGMBS6XAHVYHnAUJ8vcMm3Upw"><span style="color:#55acee">Strengthen my profile
+<u></u><u></u></span></a></span></p>
+                                                                                                                            <p class="MsoNormal"><span style="color:#333333"><u></u>&nbsp;<u></u></span></p>
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                    </tbody>
+                                                                                                                </table>
+                                                                                                            </td>
+                                                                                                        </tr>
+                                                                                                        </tbody>
+                                                                                                    </table>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </td>
+                                                                                        <td style="padding:0in 0in 0in 0in">
+                                                                                            <table class="m_4648353589170252898MsoNormalTable" border="0" cellspacing="0" cellpadding="0" align="left" width="280" style="width:210.0pt;border-collapse:collapse">
+                                                                                                <tbody>
+                                                                                                <tr>
+                                                                                                    <td style="padding:0in 0in 0in 0in">
+                                                                                                        <p class="MsoNormal"><span style="color:#333333"><img border="0" id="m_4648353589170252898_x0000_i1039" src="https://ci3.googleusercontent.com/proxy/tjm4OY558ZvLPgzXil26xS76Yi8bHyc_-ePGQ_-XHcUiJgdoYYZ6VNADoxvgazUCPK4A9qzRrp1owYsCzSTmkllbR94ajYohFDvCHPyBctoJOEN74GCr8-65mP18NK8CTU2b1yLHZmKDnCFZM5J2LQ=s0-d-e1-ft#https://twportal.blob.core.windows.net/images-wwwportal/mailform/general/img_myprofile.png" class="CToWUd"><u></u><u></u></span></p>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td style="padding:0in 0in 0in 0in">
+                                                                            <p class="MsoNormal" align="center" style="text-align:center"><span style="font-size:1.0pt;color:#333333"><img border="0" width="601" id="m_4648353589170252898_x0000_i1040" src="https://ci6.googleusercontent.com/proxy/5Wbam4UNJ6AlIaIRonLkzlAPOMyVetByB4-ixJfrBkb-s7G57GZMoEOLa-92mAkpBIkXs6dMYx6klcvK0_nif2D8SkmK5xtS-bD5Y6SbQgzJbEcU_SIhFf67vM_6GzSRg3if05x09cl36rQBXCTSNOj23Q=s0-d-e1-ft#https://twportal.blob.core.windows.net/images-wwwportal/mailform/top10/footer/footer_line.png" class="CToWUd"><u></u><u></u></span></p>
+                                                                        </td>
+                                                                    </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding:0in 0in 0in 0in">
+                                            <div align="center">
+                                                <table class="m_4648353589170252898MsoNormalTable" border="0" cellspacing="0" cellpadding="0" width="600" style="width:6.25in;border-collapse:collapse;max-width:600px">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td style="padding:0in 0in 0in 0in">
+                                                            <div align="center">
+                                                                <table class="m_4648353589170252898MsoNormalTable" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100.0%;background:whitesmoke;border-collapse:collapse">
+                                                                    <tbody>
+                                                                    <tr>
+                                                                        <td width="100%" style="width:100.0%;padding:15.0pt 15.0pt 15.0pt 15.0pt">
+                                                                            <table class="m_4648353589170252898MsoNormalTable" border="0" cellspacing="0" cellpadding="0" align="left" width="280" style="width:210.0pt;border-collapse:collapse">
+                                                                                <tbody>
+                                                                                <tr>
+                                                                                    <td style="padding:0in 0in 0in 0in">
+                                                                                        <p class="MsoNormal"><span style="color:#333333"><a href="http://bitly.com/2EHCO5U" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://bitly.com/2EHCO5U&amp;source=gmail&amp;ust=1521251881373000&amp;usg=AFQjCNFR7mWrYVDE2XLv-Zsd2HwjLMboSQ"><span style="font-family:&quot;Arial&quot;,&quot;sans-serif&quot;"><img border="0" width="45" height="45" id="m_4648353589170252898_x0000_i1041" src="https://ci3.googleusercontent.com/proxy/p1aVOYYxTsayWReLSjyCGQXtXKFCAmGNdP8O-asUH0UX6NOJ0jwnFNVw18Vs0Hq6kxdgvpFLdEsp9mOardfVG8yOW_4oaods1nkG7Rq2wpayu05apzJoKPdgn5YteFlBYO5EE5SjghpTPuWQji3ROXfX3I0=s0-d-e1-ft#https://twportal.blob.core.windows.net/images-wwwportal/mailform/top10/footer/ic_social_ig.png" class="CToWUd"></span></a><a href="http://bitly.com/2EBKN4H" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://bitly.com/2EBKN4H&amp;source=gmail&amp;ust=1521251881373000&amp;usg=AFQjCNEHjy0VIQqfLAkhXKlRw29FtLflPA"><span style="font-family:&quot;Arial&quot;,&quot;sans-serif&quot;"><img border="0" width="45" height="45" id="m_4648353589170252898_x0000_i1042" src="https://ci6.googleusercontent.com/proxy/OgdlkCksTKDsF1Y89hb5a8UvsiaPrpXCm3vo0uM2CSfOMjyAsGva6TCUyaAJ1EwHAzI9qUQUCF1DK4X0wwOSRjwUj4ZOKG2ioc2dSpIyCwur8AgwtstxEmh1aJvyetEuaWOnblSXAOxunPGKt_iyLhiW4C4=s0-d-e1-ft#https://twportal.blob.core.windows.net/images-wwwportal/mailform/top10/footer/ic_social_fb.png" class="CToWUd"></span></a><a href="http://bitly.com/2ECC16q" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://bitly.com/2ECC16q&amp;source=gmail&amp;ust=1521251881373000&amp;usg=AFQjCNFXhclRrje_U7Af_n3CpuwiX53yYA"><span style="font-family:&quot;Arial&quot;,&quot;sans-serif&quot;"><img border="0" width="45" height="45" id="m_4648353589170252898_x0000_i1043" src="https://ci6.googleusercontent.com/proxy/7lVG7wfsCkxK1yIMV_OBndwvUDCC6YcexWX_sc2rvePozzUJ3-dNJl0obNPm2Jo9gLcdK962KcsnhdKST0B-G556AoRa7AdO4Bj9_m7ek5_vLtO9pZnQaED7thTBtbuR7JyTOUcYjeuYVAijQokUhtT7rO0=s0-d-e1-ft#https://twportal.blob.core.windows.net/images-wwwportal/mailform/top10/footer/ic_social_tw.png" class="CToWUd"></span></a><a href="http://bitly.com/2ECCplo" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://bitly.com/2ECCplo&amp;source=gmail&amp;ust=1521251881373000&amp;usg=AFQjCNEnZgQvEWVvwCMFthjq0jM4pq6r9g"><span style="font-family:&quot;Arial&quot;,&quot;sans-serif&quot;"><img border="0" width="45" height="45" id="m_4648353589170252898_x0000_i1044" src="https://ci6.googleusercontent.com/proxy/uWHJFoaV0AR7LTLM730qzyg8vdW78y0vIhlFc7-RCocJh9NLlfX6ovz9uIul75HwUN1bUWNrJ5SowYGPuozIgWxkHArpS9SW5OzKpID5wdviq_lDp3Xca8lscqF7rV-6FSHgEbFk6H5WJSsHxsSOmep1duo=s0-d-e1-ft#https://twportal.blob.core.windows.net/images-wwwportal/mailform/top10/footer/ic_social_in.png" class="CToWUd"></span></a><u></u><u></u></span></p>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </td>
+                                                                        <td style="padding:0in 0in 0in 0in">
+                                                                            <table class="m_4648353589170252898MsoNormalTable" border="0" cellspacing="0" cellpadding="0" align="left" width="280" style="width:210.0pt;border-collapse:collapse">
+                                                                                <tbody>
+                                                                                <tr>
+                                                                                    <td valign="bottom" style="padding:7.5pt 0in 7.5pt 0in">
+                                                                                        <p style="vertical-align:bottom"><b><span style="font-size:9.0pt;color:#5d5666">Follow us for more on the latest XYZ news!<u></u><u></u></span></b></p>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="background:whitesmoke;padding:0in 0in 0in 0in">
+                                            <p class="MsoNormal" align="center" style="text-align:center"><span style="color:#333333"><img border="0" width="601" id="m_4648353589170252898_x0000_i1045" src="https://ci6.googleusercontent.com/proxy/5Wbam4UNJ6AlIaIRonLkzlAPOMyVetByB4-ixJfrBkb-s7G57GZMoEOLa-92mAkpBIkXs6dMYx6klcvK0_nif2D8SkmK5xtS-bD5Y6SbQgzJbEcU_SIhFf67vM_6GzSRg3if05x09cl36rQBXCTSNOj23Q=s0-d-e1-ft#https://twportal.blob.core.windows.net/images-wwwportal/mailform/top10/footer/footer_line.png" class="CToWUd"><u></u><u></u></span></p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="background:whitesmoke;padding:0in 0in 0in 0in">
+                                            <div align="center">
+                                                <table class="m_4648353589170252898MsoNormalTable" border="0" cellspacing="0" cellpadding="0" width="580" style="width:435.0pt;border-collapse:collapse;max-width:580px">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td style="padding:0in 0in 0in 0in">
+                                                            <div align="center">
+                                                                <table class="m_4648353589170252898MsoNormalTable" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100.0%;border-collapse:collapse">
+                                                                    <tbody>
+                                                                    <tr>
+                                                                        <td style="background:whitesmoke;padding:7.5pt 7.5pt 7.5pt 7.5pt">
+                                                                            <p><span style="font-size:10.5pt;color:#333333">You are receiving this message because
+<a href="mailto:online_service@calcomp.com.tw" target="_blank">online_service@calcomp.com.tw</a> is associated with a registered member of <a href="http://xyzprinting.com" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://xyzprinting.com&amp;source=gmail&amp;ust=1521251881373000&amp;usg=AFQjCNHitnIaA-2CUIe26e6e0YEIhDZMIQ">xyzprinting.com</a>. If you'd prefer to stop receiving email from XYZprinting, please
+<a href="http://bitly.com/2EBBnGp" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://bitly.com/2EBBnGp&amp;source=gmail&amp;ust=1521251881373000&amp;usg=AFQjCNFsojgviXfSlBxtmkoGGb15ED6Vvw"><span style="font-size:12.0pt">click here.</span></a>
+<u></u><u></u></span></p>
+                                                                            <p style="margin-top:7.5pt"><span style="font-size:10.5pt;color:#333333">XYZprinting, Inc.<u></u><u></u></span></p>
+                                                                            <p style="margin-top:7.5pt"><span style="font-size:10.5pt;color:#333333"><span class="m_4648353589170252898MsoHyperlink"><span style="color:#333333"><a href="https://maps.google.com/?q=20191+Windrow+Dr,+suite+B,+Lake+forest,+CA+92630&amp;entry=gmail&amp;source=g">20191 Windrow Dr, suite B, Lake forest, CA 92630</a></span></span><u></u><u></u></span></p>
+                                                                        </td>
+                                                                    </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="background:#333333;padding:7.5pt 7.5pt 7.5pt 7.5pt">
+                                            <p align="center" style="text-align:center"><span style="font-size:9.0pt;color:white">Copyright (C) 2018
+<a href="http://bitly.com/2EBKnLF" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://bitly.com/2EBKnLF&amp;source=gmail&amp;ust=1521251881373000&amp;usg=AFQjCNEd9D2uRvuQPXVNiWDFqA3hU2nFtA">www.XYZprinting.com</a> <br>
+All Rights Reserved.<u></u><u></u></span></p>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                    </table>
+                                    </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
