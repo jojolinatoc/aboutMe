@@ -111,6 +111,12 @@
         website.controller('portfolioCtrl', function($scope) {
             $scope.portfolio = [
                 {
+                    id: 6,
+                    image: "public/images/affa.PNG",
+                    caption: "Australian Fire and First Aid",
+                    link: "#myModal6"
+                },
+                {
                     id: 5,
                     image: "public/images/himirror.PNG",
                     caption: "HiMirror",
@@ -140,6 +146,13 @@
             ];
 
             $scope.modals = [
+                {
+                    id: "myModal6",
+                    title: "Australian Fire and First Aid Website",
+                    thumbnail: "public/images/affa.PNG",
+                    content: "This is a wordpress website that offers online booking system for courses that are offered by the company.",
+                    link: "http://australianfireandfirstaid.com.au/"
+                },
                 {
                     id: "myModal5",
                     title: "HiMirror Website",
